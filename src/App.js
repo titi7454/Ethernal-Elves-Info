@@ -11,9 +11,9 @@ function App() {
     <div className="App-header">
       <NavBar />
       <Routes>
-        <Route path="/Ethernal-Elves-Info" element={<Analytics />}/>
-        <Route path="/LookUp" element={<LookUp />}/>
-        <Route path="/Dashboard" element={<Dashboard />}/>
+        <Route path="/Ethernal-Elves-Info" element={<Analytics />} />
+        <Route path="/LookUp" element={<LookUp />} />
+        <Route path="/Dashboard" element={<Dashboard />} />
       </Routes>
     </div>
   );
