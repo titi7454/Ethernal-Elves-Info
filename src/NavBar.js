@@ -10,7 +10,7 @@ const NavBar = () => {
     <nav className="nav">
       <div className="navtitle">
         <div className="title">
-        <Link to="/">
+        <Link to="/Ethernal-Elves-Info">
           EthernalElves INFO
         </Link>
         <img alt="elf" id="elfimage" src={Elf} height="50px" className={classImg} onClick={() => setClassImg("imgelf")} onAnimationEnd={() => setClassImg("")}></img>
@@ -29,7 +29,7 @@ const NavBar = () => {
         </div>
       </div>
       <ul>
-        <CustomLink to="/">Analytics</CustomLink>
+        <CustomLink to="/Ethernal-Elves-Info">Analytics</CustomLink>
         <CustomLink to="/LookUp">LookUp</CustomLink>
         <CustomLink to="/Dashboard">Dashboard</CustomLink>
       </ul>

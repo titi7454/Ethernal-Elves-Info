@@ -352,6 +352,73 @@ span:before {
   font-weight: 900;
 }
 
+.btn--help {
+  font-weight: bold;
+  font-size: xx-large;
+  left:62%;
+  top: 62%;
+  border-radius: 100%;
+  padding: 0.5rem 1.5rem;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  color: #444;
+  border: none;
+  font-family: inherit;
+  font-size: 2rem;
+  cursor: pointer;
+  font-weight: 400;
+  transition: all 0.2s;
+
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+
+  box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
+
+}
+
+.btn--help:hover{
+  background-color: white;
+
+}
+
+#help{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 70%;
+  transform: translate(-50%, -50%);
+
+  background-color: white;
+  padding: 6rem;
+  border-radius: 5px;
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  color: #000;
+}
+
+.close-help {
+  position: absolute;
+  top: 1.2rem;
+  right: 2rem;
+  font-size: 5rem;
+  color: #333;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+#overlay {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 5;
+}
+
 .box {
   background-color: rgba(#000, 0.5);
   width: 100%;

@@ -14,8 +14,8 @@ const LookUp = () => {
 
   //Fetch data from the api
   const fetchOwnerData = useCallback(async () => {
-    if (wallet === ""){
-      return
+    if (wallet === "") {
+      return;
     }
     const fetchOwnerAddress = await fetch(apiAddress);
     const resultOfAddress = await fetchOwnerAddress.json();
@@ -39,15 +39,15 @@ const LookUp = () => {
     if (walletAddress.length === 42) {
       setWallet(e);
       setAddressEntered(true);
-    } else{
-      setAddressEntered(false)
+    } else {
+      setAddressEntered(false);
     }
     setWallet(e);
   };
 
   const handleSubmit = () => {
     checkElves();
-  }
+  };
 
   //Go back to the loading screen
   const restart = () => {
@@ -55,7 +55,7 @@ const LookUp = () => {
     setWallet("");
     setRing("ring");
     setHidden("hidden");
-    setAddressEntered(false)
+    setAddressEntered(false);
   };
 
   //Refresh nft data after searching for a new address
@@ -66,26 +66,37 @@ const LookUp = () => {
   //Create the loading screen
   if (loading === true) {
     return (
-      <div className="first">
-        <h1 id="top">Searching for elves</h1>
-        <div className="initial">
-          <div className="ring" id={ring}>
-            Loading
-            <span className="circle"></span>
+      <div>
+        <button className="btn--help" onClick={() => setHidden("")}>?</button>
+        <div className={hidden} id="help"> 
+        <button className="close-help" onClick={() => setHidden("hidden")}>&times;</button>
+        <h2>If you don't have or don't know any addresses you can use this one:</h2><h3>0xE4de66EF0e34829356b53FB2C0Aa17873798e7Be</h3></div>
+        <div className={hidden} id="overlay"></div>
+        <div className="first">
+          <h1 id="top">Searching for elves</h1>
+          <div className="initial">
+            <div className="ring" id={ring}>
+              Loading
+              <span className="circle"></span>
+            </div>
+            <div className={hidden} id="red">
+              NO ELVES ENCOUNTERED
+            </div>
+            <input
+              maxLength={42}
+              className="searchbar"
+              placeholder="Enter address"
+              value={wallet}
+              onChange={(e) => handleEnterAddress(e.target.value)}
+            />
+            <button
+              className="search"
+              onClick={handleSubmit}
+              disabled={!addressEntered}
+            >
+              Search
+            </button>
           </div>
-          <div className={hidden} id="red">
-            NO ELVES ENCOUNTERED
-          </div>
-          <input
-          maxLength={42}
-            className="searchbar"
-            placeholder="Enter address"
-            value={wallet}
-            onChange={(e) => handleEnterAddress(e.target.value)}
-          />
-          <button className="search" onClick={handleSubmit} disabled={!addressEntered}>
-            Search
-          </button>
         </div>
       </div>
     );
