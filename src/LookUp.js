@@ -7,6 +7,7 @@ const LookUp = () => {
   const [wallet, setWallet] = useState("");
   const [ring, setRing] = useState("ring");
   const [hidden, setHidden] = useState("hidden");
+  const [hidden1, setHidden1] = useState("hidden");
   const [addressEntered, setAddressEntered] = useState(false);
   const apiAddress = `https://api.ethernalelves.com/api/owners/${wallet}`;
 
@@ -27,7 +28,7 @@ const LookUp = () => {
     if (ownerData === null || ownerData.sentinels.length === 0) {
       setLoading(true);
       setRing("hidden");
-      setHidden("");
+      setHidden1("");
     } else {
       setLoading(false);
     }
@@ -54,7 +55,7 @@ const LookUp = () => {
     setLoading(true);
     setWallet("");
     setRing("ring");
-    setHidden("hidden");
+    setHidden1("hidden");
     setAddressEntered(false);
   };
 
@@ -67,10 +68,15 @@ const LookUp = () => {
   if (loading === true) {
     return (
       <div>
-        <button className="btn--help" onClick={() => setHidden("")}>?</button>
-        <div className={hidden} id="help"> 
-        <button className="close-help" onClick={() => setHidden("hidden")}>&times;</button>
-        <h2>If you don't have or don't know any addresses you can use this one:</h2><h3>0xE4de66EF0e34829356b53FB2C0Aa17873798e7Be</h3></div>
+        <div className={hidden} id="help">
+          <button className="close-help" onClick={() => setHidden("hidden")}>
+            &times;
+          </button>
+          <h2>
+            If you don't have or don't know any addresses you can use this one:
+          </h2>
+          <h3>0xE4de66EF0e34829356b53FB2C0Aa17873798e7Be</h3>
+        </div>
         <div className={hidden} id="overlay"></div>
         <div className="first">
           <h1 id="top">Searching for elves</h1>
@@ -79,7 +85,7 @@ const LookUp = () => {
               Loading
               <span className="circle"></span>
             </div>
-            <div className={hidden} id="red">
+            <div className={hidden1} id="red">
               NO ELVES ENCOUNTERED
             </div>
             <input
@@ -89,13 +95,18 @@ const LookUp = () => {
               value={wallet}
               onChange={(e) => handleEnterAddress(e.target.value)}
             />
-            <button
-              className="search"
-              onClick={handleSubmit}
-              disabled={!addressEntered}
-            >
-              Search
-            </button>
+            <div className="searchhelp">
+              <button
+                className="search"
+                onClick={handleSubmit}
+                disabled={!addressEntered}
+              >
+                Search
+              </button>
+              <button className="btn--help" onClick={() => setHidden("")}>
+                ?
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -104,7 +115,7 @@ const LookUp = () => {
     return (
       //Load the nfts
       <div>
-        <button className="search" onClick={restart}>
+        <button className="search" id="back" onClick={restart}>
           Back
         </button>
         <div className="elves">

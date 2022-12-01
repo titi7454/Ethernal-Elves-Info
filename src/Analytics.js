@@ -41,7 +41,7 @@ const Analytics = () => {
 
   return (
     <div>
-      <h2>Current prices</h2>
+      <h2 className="prices">Current prices</h2>
       <div className="stats">
         <a
           target={"_blank"}

@@ -8,11 +8,9 @@ const Elf = ({ elfId, collection }) => {
 
   const a = (n) => {
     return (
-      <div>
         <div>
           {elfData.attributes[n].trait_type}:{elfData.attributes[n].value}
         </div>
-      </div>
     );
   };
 
@@ -68,8 +66,7 @@ const Elf = ({ elfId, collection }) => {
         <div>{elfData.name}</div>
         <div>
           <img
-            height={"350px"}
-            width={"350px"}
+            className="responsive"
             src={elfData.image}
             alt="elf"
           ></img>
