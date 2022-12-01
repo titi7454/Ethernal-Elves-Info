@@ -5,6 +5,7 @@ import Elf from "./elf.png";
 
 const NavBar = () => {
   const [classImg, setClassImg] = useState("");
+// <CustomLink to="/Dashboard">Dashboard</CustomLink>
 
   return (
     <nav className="nav">
@@ -37,7 +38,6 @@ const NavBar = () => {
       <ul>
         <CustomLink to="/Ethernal-Elves-Info">Analytics</CustomLink>
         <CustomLink to="/LookUp">LookUp</CustomLink>
-        <CustomLink to="/Dashboard">Dashboard</CustomLink>
       </ul>
     </nav>
   );

@@ -3,7 +3,6 @@
   --bg: #b78846;
 }
 
-
 * {
   box-sizing: border-box;
 }
@@ -26,7 +25,7 @@ body {
   margin: 0.5rem;
 }
 
-.responsive{
+.responsive {
   width: 100%;
   max-width: 350px;
   height: auto;
@@ -56,6 +55,11 @@ body {
         #0000 90deg,
         #000 0
       )
+      var(--_i, 200%) 0 /200% var(--_i, 2px) border-box no-repeat,
+    conic-gradient(at bottom 2px left 2px, #0000 90deg, #000 0) 0
+      var(--_i, 200%) / var(--_i, 2px) 200% border-box no-repeat,
+    linear-gradient(#000 0 0) padding-box no-repeat;
+  mask: conic-gradient(from 180deg at top 2px right 2px, #0000 90deg, #000 0)
       var(--_i, 200%) 0 /200% var(--_i, 2px) border-box no-repeat,
     conic-gradient(at bottom 2px left 2px, #0000 90deg, #000 0) 0
       var(--_i, 200%) / var(--_i, 2px) 200% border-box no-repeat,
@@ -180,8 +184,8 @@ a:active {
   text-decoration: none;
 }
 
-.searchhelp{
-  display:flex;
+.searchhelp {
+  display: flex;
   width: 400px;
 }
 
@@ -315,7 +319,7 @@ span:before {
   color: white;
 }
 
-#back{
+#back {
   position: relative;
   left: 0;
 }
@@ -417,9 +421,8 @@ span:before {
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
   z-index: 10;
   color: #000;
-  word-wrap: break-word
+  word-wrap: break-word;
 }
-
 
 .close-help {
   position: absolute;
@@ -536,40 +539,39 @@ span:before {
 }
 
 @media only screen and (max-width: 1530px) {
-  .elves{
-    grid-template-columns: repeat(3,1fr);
+  .elves {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
-
 @media only screen and (max-width: 1150px) {
-  .elves{
-    grid-template-columns: repeat(2,1fr);
+  .elves {
+    grid-template-columns: repeat(2, 1fr);
   }
-  h1{
+  h1 {
     font-size: 2.5rem;
   }
 }
 
 @media only screen and (max-width: 800px) {
-  .elves{
+  .elves {
     display: flex;
     flex-wrap: wrap;
   }
-  .search{
-  left: 37%;
+  .search {
+    left: 37%;
   }
-  .prices{
+  .prices {
     font-size: 2rem;
   }
-  h2{
+  h2 {
     font-size: large;
   }
-  h3{
+  h3 {
     font-size: medium;
   }
-  #help{
-  padding: 2rem;
+  #help {
+    padding: 2rem;
   }
   .close-help {
     top: 0.2rem;
@@ -577,13 +579,28 @@ span:before {
     font-size: 2.5rem;
     color: #333;
   }
-}
-.child{
-  font-size: 1.75rem;
+  .title {
+    font-size: 1.25rem;
+    width: 1.25rem;
+    align-items: center;
+  }
+  #elfimage {
+    height: 45px;
+  }
+  .navflex {
+    width: 180px;
+  }
+  .unof {
+    word-wrap: break-word;
+  }
+  .ee {
+    width: 47px;
+    word-wrap: break-word;
+  }
 }
 
-@media only screen and (max-width: 370px) {
-  .child{
+@media only screen and (max-width: 380px) {
+  .child {
     font-size: 1.25rem;
   }
 }
