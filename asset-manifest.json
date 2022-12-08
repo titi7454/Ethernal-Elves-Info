@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/Ethernal-Elves-Info/static/css/main.2087b700.css",
-    "main.js": "/Ethernal-Elves-Info/static/js/main.31c20572.js",
+    "main.css": "/Ethernal-Elves-Info/static/css/main.be1fe416.css",
+    "main.js": "/Ethernal-Elves-Info/static/js/main.72141d86.js",
     "static/js/787.2746eaee.chunk.js": "/Ethernal-Elves-Info/static/js/787.2746eaee.chunk.js",
     "static/media/eth.png": "/Ethernal-Elves-Info/static/media/eth.5447cb248ab7c0fc03d5.png",
     "static/media/arrow.png": "/Ethernal-Elves-Info/static/media/arrow.d15ec9835d34c5b5e72d.png",
     "index.html": "/Ethernal-Elves-Info/index.html",
-    "main.2087b700.css.map": "/Ethernal-Elves-Info/static/css/main.2087b700.css.map",
-    "main.31c20572.js.map": "/Ethernal-Elves-Info/static/js/main.31c20572.js.map",
+    "main.be1fe416.css.map": "/Ethernal-Elves-Info/static/css/main.be1fe416.css.map",
+    "main.72141d86.js.map": "/Ethernal-Elves-Info/static/js/main.72141d86.js.map",
     "787.2746eaee.chunk.js.map": "/Ethernal-Elves-Info/static/js/787.2746eaee.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2087b700.css",
-    "static/js/main.31c20572.js"
+    "static/css/main.be1fe416.css",
+    "static/js/main.72141d86.js"
   ]
 }
