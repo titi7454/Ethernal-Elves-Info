@@ -1,17 +1,23 @@
 import { React, useEffect, useState, useCallback } from "react";
+import Checkbox from "./Checkbox";
 import Elf from "./Elf";
 
 const LookUp = () => {
   const [ownerData, setOwnerData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [wallet, setWallet] = useState("");
+  const [minLevel, setMinLevel] = useState("0");
+  const [maxLevel, setMaxLevel] = useState("100");
   const [ring, setRing] = useState("ring");
   const [hidden, setHidden] = useState("hidden");
   const [hidden1, setHidden1] = useState("hidden");
   const [addressEntered, setAddressEntered] = useState(false);
+  const [elder, setElder] = useState(true);
+  const [sentinel, setSentinel] = useState(true);
   const apiAddress = `https://api.ethernalelves.com/api/owners/${wallet}`;
 
   //https://cors-anywhere.herokuapp.com/
+  //https://api.opensea.io/api/v1/asset/0xfb2b13c622d1590f9199f75d975574e8240b2618/1
 
   //Fetch data from the api
   const fetchOwnerData = useCallback(async () => {
@@ -46,8 +52,24 @@ const LookUp = () => {
     setWallet(e);
   };
 
+  const handleMinLevel = (e) =>{
+    setMinLevel(e)
+  }
+
+  const handleMaxLevel = (e) =>{
+    setMaxLevel(e)
+  }
+
   const handleSubmit = () => {
     checkElves();
+  };
+
+  const onElderChange = (checked) => {
+    setElder(checked);
+  };
+
+  const onSentinelChange = (checked) => {
+    setSentinel(checked);
   };
 
   //Go back to the loading screen
@@ -57,12 +79,14 @@ const LookUp = () => {
     setRing("ring");
     setHidden1("hidden");
     setAddressEntered(false);
+    setMaxLevel('100')
+    setMinLevel('0')
   };
 
   //Refresh nft data after searching for a new address
   useEffect(() => {
     fetchOwnerData();
-  }, [loading, fetchOwnerData]);
+  }, [loading, fetchOwnerData, minLevel, maxLevel]);
 
   //Create the loading screen
   if (loading === true) {
@@ -114,37 +138,73 @@ const LookUp = () => {
   } else
     return (
       //Load the nfts
-      <div>
+      <div className="maindiv">
         <button className="search" id="back" onClick={restart}>
           Back
         </button>
+        <div className="checkbox">
+          <div>
+            <div className="lb1">
+              <label htmlFor="elder">Elders</label>
+              <Checkbox id="elder" checked={elder} onChange={onElderChange} />
+            </div>
+            <div className="lb2">
+              <label htmlFor="sentinel">Sentinels</label>
+              <Checkbox
+                id="sentinel"
+                checked={sentinel}
+                onChange={onSentinelChange}
+              />
+            </div>
+          </div>
+          <div className="levels-input">
+            <div>
+              <div>Min. Level</div>
+              <input
+                className="level"
+                value={minLevel}
+                onChange={(e) => handleMinLevel(e.target.value)}
+              />
+            </div>
+            <div>
+            <div>Max. Level</div>
+              <input
+                className="level"
+                value={maxLevel}
+                onChange={(e) => handleMaxLevel(e.target.value)}
+              />
+            </div>
+          </div>
+        </div>
         <div className="elves">
-          {ownerData.elders.map((elders, key) => {
-            return (
-              <div key={key} className="child box">
-                <a
-                  target={"_blank"}
-                  rel={"noopener noreferrer"}
-                  href={`https://opensea.io/assets/ethereum/0xfb2b13c622d1590f9199f75d975574e8240b2618/${elders}`}
-                >
-                  <Elf elfId={elders} collection={"elders"} />
-                </a>
-              </div>
-            );
-          })}
-          {ownerData.sentinels.map((sentinels, key) => {
-            return (
-              <div key={key} className="child box">
-                <a
-                  target={"_blank"}
-                  rel={"noopener noreferrer"}
-                  href={`https://opensea.io/assets/ethereum/0xa351b769a01b445c04aa1b8e6275e03ec05c1e75/${sentinels}`}
-                >
-                  <Elf elfId={sentinels} collection={"sentinels"} />
-                </a>
-              </div>
-            );
-          })}
+          {elder &&
+            ownerData.elders.map((elders, key) => {
+              return (
+                <div key={key} className="child box">
+                  <a
+                    target={"_blank"}
+                    rel={"noopener noreferrer"}
+                    href={`https://opensea.io/assets/ethereum/0xfb2b13c622d1590f9199f75d975574e8240b2618/${elders}`}
+                  >
+                    <Elf elfId={elders} collection={"elders"}  minLevel={minLevel} maxLevel={maxLevel}/>
+                  </a>
+                </div>
+              );
+            })}
+          {sentinel &&
+            ownerData.sentinels.map((sentinels, key) => {
+              return (
+                <div key={key} className="child box">
+                  <a
+                    target={"_blank"}
+                    rel={"noopener noreferrer"}
+                    href={`https://opensea.io/assets/ethereum/0xa351b769a01b445c04aa1b8e6275e03ec05c1e75/${sentinels}`}
+                  >
+                    <Elf elfId={sentinels} collection={"sentinels"} minLevel={minLevel} maxLevel={maxLevel}/>
+                  </a>
+                </div>
+              );
+            })}
         </div>
       </div>
     );

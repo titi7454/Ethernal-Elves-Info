@@ -35,7 +35,7 @@ const NavBar = () => {
           </a>
         </div>
       </div>
-      <ul>
+      <ul className="navitems">
         <CustomLink to="/Ethernal-Elves-Info">Analytics</CustomLink>
         <CustomLink to="/LookUp">LookUp</CustomLink>
       </ul>

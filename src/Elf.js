@@ -1,7 +1,7 @@
 import { React, useEffect, useState } from "react";
 import Countdown from "react-countdown";
 
-const Elf = ({ elfId, collection }) => {
+const Elf = ({ elfId, collection, minLevel, maxLevel }) => {
   const api = `https://api.ethernalelves.com/api/${collection}/${elfId}`;
   const [elfData, setElfData] = useState("");
   const [loading, setLoading] = useState(true);
@@ -11,6 +11,7 @@ const Elf = ({ elfId, collection }) => {
       <div>
         {elfData.attributes[n].trait_type}:{elfData.attributes[n].value}
       </div>
+      
     );
   };
 
@@ -59,12 +60,14 @@ const Elf = ({ elfId, collection }) => {
       const result = await response.json();
       setElfData(result);
       setLoading(false);
+      console.log(elfData.attributes[elfData.attributes.length - 1].value);
     };
     fetchData();
+
   }, [api, elfId]);
   if (loading === true) {
     return <p>loading...</p>;
-  } else
+  }else if(minLevel<=elfData.attributes[elfData.attributes.length - 1].value && maxLevel>=elfData.attributes[elfData.attributes.length - 1].value){
     return (
       //Create a table with every nft of the owner
       <div className="box-inner">
@@ -78,6 +81,9 @@ const Elf = ({ elfId, collection }) => {
         {isElder()}
       </div>
     );
+  }
+   else
+    return ;
 };
 
 export default Elf;
