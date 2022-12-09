@@ -19,11 +19,12 @@ body {
 .elves {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
   padding: 1rem;
   justify-content: center;
-  gap: 15px;
   margin: 0.5rem;
 }
+
 
 .responsive {
   width: 100%;
@@ -34,6 +35,7 @@ body {
 .navtitle {
   display: grid;
   font-size: small;
+  width: 230px;
 }
 
 .navflex {
@@ -377,11 +379,11 @@ span:before {
 }
 
 .hidden {
-  visibility: hidden;
+  display: none;
 }
 
 #hidden {
-  visibility: hidden;
+  display: none;
 }
 
 #red {
@@ -510,6 +512,10 @@ span:before {
   right: -2px;
 }
 
+.navitems-n{
+  font-size: 1.5rem;
+}
+
 .nav {
   background-color: #3b414b;
   color: white;
@@ -595,6 +601,14 @@ span:before {
   border: 2px solid var(--col);
 }
 
+#close-menu{
+  display: none;
+}
+
+#burger-menu{
+  display: none;
+}
+
 @media only screen and (max-width: 1530px) {
   .elves {
     grid-template-columns: repeat(3, 1fr);
@@ -631,8 +645,7 @@ span:before {
     padding: 2rem;
   }
   .navitems {
-    display: flex;
-    flex-direction: column;
+    display: none;
   }
   .close-help {
     top: 0.2rem;
@@ -642,21 +655,15 @@ span:before {
   }
   .title {
     font-size: 1.25rem;
-    width: 1.25rem;
+    width: 230px;
     align-items: center;
   }
   #elfimage {
     height: 45px;
   }
   .navflex {
-    width: 180px;
-  }
-  .unof {
-    word-wrap: break-word;
-  }
-  .ee {
-    width: 50px;
-    word-wrap: break-word;
+    width: 230px;
+    font-size: 0.75rem;
   }
   .box-inner {
     padding: 1rem;
@@ -670,6 +677,7 @@ span:before {
 @media only screen and (max-width: 450px) {
   .child {
     font-size: 1.25rem;
+    margin-bottom: 1rem;
   }
   .searchbar{
     width: 350px;
@@ -677,8 +685,9 @@ span:before {
   .nav {
     padding: 0.55rem;
   }
-  .navtitle, .navitems{
-    scale: 0.85;
+  .navtitle{
+    scale: 1;
+    padding-left: 0.5rem;
   }
   .first{
     max-width: 390px;
@@ -695,5 +704,42 @@ span:before {
   .lb2{
     margin-top: 0.5rem;
   }
-  
+  .navitems{
+    flex-direction: column;
+    position: absolute;
+    top: 82px;
+    left: 0;
+    font-size: small;
+    width: 100%;
+    z-index: 5;
+    background-color: #3b414b;
+  }
+  .nav ul{
+    gap: 0.5rem;
+  }
+  .navitems li{
+    padding-left: 30px;
+  }
+
+  .navitems-n{
+    display: none !important;
+  }
+
+  #close-menu{
+    scale: 0.6;
+    position: absolute;
+    right: -0.75%;
+    top: 0.2%;
+    display: initial;
+    filter: invert(100%) sepia(6%) saturate(2%) hue-rotate(222deg) brightness(115%) contrast(92%);
+  }
+
+  #burger-menu{
+    scale: 0.6;
+    position: absolute;
+    right: 1.75%;
+    top: 1.75%;
+    display: initial;
+    filter: invert(100%) sepia(6%) saturate(2%) hue-rotate(222deg) brightness(115%) contrast(92%);
+  }
 }

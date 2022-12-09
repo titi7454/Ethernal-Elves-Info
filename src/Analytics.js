@@ -165,7 +165,7 @@ const Analytics = () => {
                   ></img>
                   <p>{moon}</p>
                   <div className="space"></div>
-                  <div>{isPositive(elfStats)}</div>
+                  <div>--%</div>
                 </div>
               </dd>
               <dd>
@@ -198,7 +198,7 @@ const Analytics = () => {
                     height="29px"
                   ></img>
                   <p>{ren}</p>
-                  <div>{isPositive(elfStats)}</div>
+                  <div>--%</div>
                 </div>
               </dd>
               <dd className="renaskprice">

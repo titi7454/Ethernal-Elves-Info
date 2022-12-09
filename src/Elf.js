@@ -60,10 +60,8 @@ const Elf = ({ elfId, collection, minLevel, maxLevel }) => {
       const result = await response.json();
       setElfData(result);
       setLoading(false);
-      console.log(elfData.attributes[elfData.attributes.length - 1].value);
     };
     fetchData();
-
   }, [api, elfId]);
   if (loading === true) {
     return <p>loading...</p>;

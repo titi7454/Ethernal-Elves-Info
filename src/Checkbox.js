@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import './Switch.scss';
 
-const Checkbox = ({ id, name, checked, onChange, optionLabels, small, disabled }) => {
+const Checkbox = ({ id, name, checked, onChange, small, disabled }) => {
 
   return (
     <div className={"toggle-switch" + (small ? " small-switch" : "")}>
@@ -44,7 +44,6 @@ Checkbox.propTypes = {
   checked: PropTypes.bool.isRequired,
   onChange: PropTypes.func.isRequired,
   name: PropTypes.string,
-  optionLabels: PropTypes.array,
   small: PropTypes.bool,
   disabled: PropTypes.bool
 };
