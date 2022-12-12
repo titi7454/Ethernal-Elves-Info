@@ -4,7 +4,8 @@ import LookUp from "./LookUp";
 import Analytics from "./Analytics";
 import NavBar from "./NavBar";
 import { Route, Routes } from "react-router-dom";
-import Dashboard from "./Dashboard";
+import Elves from "./Elves";
+import Elders from "./Elders";
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
       <Routes>
         <Route path="/Ethernal-Elves-Info" element={<Analytics />} />
         <Route path="/LookUp" element={<LookUp />} />
-        <Route path="/Dashboard" element={<Dashboard />} />
+        <Route path="/Elves" element={<Elves />} />
+        <Route path="/Elders" element={<Elders />} />
       </Routes>
     </div>
   );

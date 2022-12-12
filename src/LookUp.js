@@ -139,67 +139,77 @@ const LookUp = () => {
         </div>
       </div>
     );
-  } else console.log(collectionElders, colNameElders, minLevel, maxLevel);
-  return (
-    //Load the nfts
-    <div className="maindiv">
-      <button className="search" id="back" onClick={restart}>
-        Back
-      </button>
-      <div className="checkbox">
-        <div>
-          <div className="lb1">
-            <label htmlFor="elder">Elders</label>
-            <Checkbox id="elder" checked={elder} onChange={onElderChange} />
+  } else
+    return (
+      //Load the nfts
+      <div className="maindiv">
+        <button className="search" id="back" onClick={restart}>
+          Back
+        </button>
+        <div className="checkbox">
+          <div>
+            <div className="lb1">
+              <label htmlFor="elder">Elders</label>
+              <Checkbox id="elder" checked={elder} onChange={onElderChange} />
+            </div>
+            <div className="lb2">
+              <label htmlFor="sentinel">Sentinels</label>
+              <Checkbox
+                id="sentinel"
+                checked={sentinel}
+                onChange={onSentinelChange}
+              />
+            </div>
           </div>
-          <div className="lb2">
-            <label htmlFor="sentinel">Sentinels</label>
-            <Checkbox
-              id="sentinel"
-              checked={sentinel}
-              onChange={onSentinelChange}
-            />
+          <div className="levels-input">
+            <div>
+              <div>Min. Level</div>
+              <input
+                className="level"
+                value={minLevel}
+                onChange={(e) => handleMinLevel(e.target.value)}
+              />
+            </div>
+            <div>
+              <div>Max. Level</div>
+              <input
+                className="level"
+                value={maxLevel}
+                onChange={(e) => handleMaxLevel(e.target.value)}
+              />
+            </div>
           </div>
         </div>
-        <div className="levels-input">
-          <div>
-            <div>Min. Level</div>
-            <input
-              className="level"
-              value={minLevel}
-              onChange={(e) => handleMinLevel(e.target.value)}
-            />
-          </div>
-          <div>
-            <div>Max. Level</div>
-            <input
-              className="level"
-              value={maxLevel}
-              onChange={(e) => handleMaxLevel(e.target.value)}
-            />
-          </div>
+        <div className="elves">
+          {ownerData.elders.map((elders, key) => {
+            return (
+              <ElfCard
+                typeOfElf={elder}
+                elfId={elders}
+                collectionId={collectionElders}
+                collectionName={colNameElders}
+                minLevel={minLevel}
+                maxLevel={maxLevel}
+                key={key}
+              />
+            );
+          })}
+          {ownerData.sentinels.map((sentinels, key) => {
+            return (
+              <ElfCard
+                typeOfElf={sentinel}
+                elfId={sentinels}
+                collectionId={collectionSentinels}
+                collectionName={colNameSentinels}
+                minLevel={minLevel}
+                maxLevel={maxLevel}
+                key={key}
+              />
+            );
+          })}
         </div>
       </div>
-      <div className="elves">
-          <ElfCard
-            typeOf={elder}
-            data={ownerData.elders}
-            collectionId={collectionElders}
-            collectionName={colNameElders}
-            minLevel={minLevel}
-            maxLevel={maxLevel}
-          />
-          <ElfCard
-            typeOf={sentinel}
-            data={ownerData.sentinels}
-            collectionId={collectionSentinels}
-            collectionName={colNameSentinels}
-            minLevel={minLevel}
-            maxLevel={maxLevel}
-          />
-      </div>
-    </div>
-  );
+    );
 };
 
 export default LookUp;
