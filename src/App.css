@@ -25,7 +25,6 @@ body {
   margin: 0.5rem;
 }
 
-
 .responsive {
   width: 100%;
   max-width: 350px;
@@ -243,7 +242,7 @@ a:active {
   border-radius: 50%;
   animation: animateC 2s linear infinite;
 }
-span {
+/* span {
   display: block;
   position: absolute;
   top: calc(50% - 2px);
@@ -264,9 +263,9 @@ span:before {
   top: -6px;
   right: -8px;
   box-shadow: 0 0 20px #fff000;
-}
+} */
 
-/* .circle {
+.circle {
   display: block;
   position: absolute;
   top: calc(50% - 2px);
@@ -287,7 +286,7 @@ span:before {
   top: -6px;
   right: -8px;
   box-shadow: 0 0 20px #fff000;
-} */
+}
 
 @keyframes animateC {
   0% {
@@ -328,7 +327,7 @@ span:before {
   color: white;
 }
 
-.searchbar:hover{
+.searchbar:hover {
   border: 5px solid var(--col);
 }
 
@@ -512,7 +511,7 @@ span:before {
   right: -2px;
 }
 
-.navitems-n{
+.navitems-n {
   font-size: 1.5rem;
 }
 
@@ -562,6 +561,7 @@ span:before {
 
 .navitems {
   font-size: 1.5rem;
+  display: none !important;
 }
 
 .checkbox {
@@ -575,11 +575,11 @@ span:before {
   align-items: center;
 }
 
-.levels-input{
+.levels-input {
   display: block;
 }
 
-.level{
+.level {
   width: 100px;
   height: 40px;
   border: 2px solid var(--bg);
@@ -597,15 +597,15 @@ span:before {
   margin-top: 5%;
 }
 
-.level:hover{
+.level:hover {
   border: 2px solid var(--col);
 }
 
-#close-menu{
+#close-menu {
   display: none;
 }
 
-#burger-menu{
+#burger-menu {
   display: none;
 }
 
@@ -679,32 +679,32 @@ span:before {
     font-size: 1.25rem;
     margin-bottom: 1rem;
   }
-  .searchbar{
+  .searchbar {
     width: 350px;
   }
   .nav {
     padding: 0.55rem;
   }
-  .navtitle{
+  .navtitle {
     scale: 1;
     padding-left: 0.5rem;
   }
-  .first{
+  .first {
     max-width: 390px;
   }
-  #overlay{
+  #overlay {
     max-height: 100%;
   }
-  .checkbox{
+  .checkbox {
     font-size: 1.25rem;
   }
-  .lb1{
+  .lb1 {
     margin-bottom: 0.5rem;
   }
-  .lb2{
+  .lb2 {
     margin-top: 0.5rem;
   }
-  .navitems{
+  .navitems {
     flex-direction: column;
     position: absolute;
     top: 80px;
@@ -713,33 +713,36 @@ span:before {
     width: 100%;
     z-index: 5;
     background-color: #3b414b;
+    display: initial !important;
   }
-  .nav ul{
+  .nav ul {
     gap: 0.5rem;
   }
-  .navitems li{
+  .navitems li {
     padding-left: 30px;
   }
 
-  .navitems-n{
+  .navitems-n {
     display: none !important;
   }
 
-  #close-menu{
+  #close-menu {
     scale: 0.6;
     position: absolute;
     right: -0.75%;
     top: 0.2%;
     display: initial;
-    filter: invert(100%) sepia(6%) saturate(2%) hue-rotate(222deg) brightness(115%) contrast(92%);
+    filter: invert(100%) sepia(6%) saturate(2%) hue-rotate(222deg)
+      brightness(115%) contrast(92%);
   }
 
-  #burger-menu{
+  #burger-menu {
     scale: 0.6;
     position: absolute;
     right: 1.75%;
     top: 1.75%;
     display: initial;
-    filter: invert(100%) sepia(6%) saturate(2%) hue-rotate(222deg) brightness(115%) contrast(92%);
+    filter: invert(100%) sepia(6%) saturate(2%) hue-rotate(222deg)
+      brightness(115%) contrast(92%);
   }
 }
