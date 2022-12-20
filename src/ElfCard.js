@@ -9,6 +9,7 @@ const ElfCard = ({
   maxLevel,
   elfId,
   myKey,
+  selectClass,
 }) => {
   const api = `https://api.ethernalelves.com/api/${collectionName}/${elfId}`;
   const [elfData, setElfData] = useState("");
@@ -48,15 +49,24 @@ const ElfCard = ({
       const result = await response.json();
       setElfData(result);
       setLoading(false);
+      console.log(result);
     };
     fetchData();
   }, [api]);
   if (loading === true) {
     return <p>loading...</p>;
   } else if (
+    // check min and max levels
     minLevel <= elfData.attributes[elfData.attributes.length - 1].value &&
     maxLevel >= elfData.attributes[elfData.attributes.length - 1].value &&
-    typeOfElf
+    // if elder or sentinel option is available
+    typeOfElf &&
+    // show all elves if no class is selected or show all elves of the selected class
+    selectClass === ""
+      ? true
+      : selectClass === elfData.attributes[0].value
+      ? true
+      : false
   ) {
     return (
       <div key={myKey} className="child box">

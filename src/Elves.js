@@ -9,13 +9,13 @@ const Elves = () => {
   ]);
   const [minLevel, setMinLevel] = useState("0");
   const [maxLevel, setMaxLevel] = useState("100");
+  const [selectClass, setSelectClass] = useState("");
   const collectionSentinels = "0xa351b769a01b445c04aa1b8e6275e03ec05c1e75";
   const colNameSentinels = "sentinels";
 
   const elfData = useCallback(() => {
     for (let i = elvesArr[elvesArr.length - 1] + 1; i <= loadedElves; i++) {
       setElvesArr((o) => [...o, i]);
-      console.log(elvesArr.length);
     }
   }, [elvesArr, loadedElves]);
 
@@ -31,10 +31,9 @@ const Elves = () => {
     elfData();
   }, [loadedElves, elfData]);
   return (
-    <div>
-      <h1 className="RED">In construction</h1>
+    <div className="maindiv">
       <div className="levels-input">
-        <div>
+        <div className="up">
           <div>Min. Level</div>
           <input
             className="level"
@@ -42,7 +41,7 @@ const Elves = () => {
             onChange={(e) => handleMinLevel(e.target.value)}
           />
         </div>
-        <div>
+        <div className="up">
           <div>Max. Level</div>
           <input
             className="level"
@@ -50,6 +49,12 @@ const Elves = () => {
             onChange={(e) => handleMaxLevel(e.target.value)}
           />
         </div>
+        <select className="select" onChange={(e) => setSelectClass(e.target.value)}>
+          <option value="">-Select class-</option>
+          <option value="Ranger">Ranger</option>
+          <option value="Assassin">Assassin</option>
+          <option value="Druid">Druid</option>
+        </select>
       </div>
       <div className="elves">
         {elvesArr.map((sentinels, key) => {
@@ -63,17 +68,18 @@ const Elves = () => {
               collectionName={colNameSentinels}
               minLevel={minLevel}
               maxLevel={maxLevel}
+              selectClass={selectClass}
             />
           );
         })}
-        <button
-          className="search"
-          id="back"
-          onClick={() => setLoadedElves(loadedElves + 25)}
-        >
-          Load more
-        </button>
       </div>
+      <button
+        className="search"
+        id="loadmore"
+        onClick={() => setLoadedElves(loadedElves + 25)}
+      >
+        Load more
+      </button>
     </div>
   );
 };

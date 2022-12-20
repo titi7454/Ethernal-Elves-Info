@@ -146,14 +146,14 @@ const LookUp = () => {
         <button className="search" id="back" onClick={restart}>
           Back
         </button>
-        <div className="checkbox">
-          <div>
+        <div className="checkbox" id="chmb">
+          <div className="checkbox">
             <div className="lb1">
-              <label htmlFor="elder">Elders</label>
+              <div>Elders</div>
               <Checkbox id="elder" checked={elder} onChange={onElderChange} />
             </div>
             <div className="lb2">
-              <label htmlFor="sentinel">Sentinels</label>
+            <div>Sentinels</div>
               <Checkbox
                 id="sentinel"
                 checked={sentinel}
@@ -191,6 +191,7 @@ const LookUp = () => {
                 minLevel={minLevel}
                 maxLevel={maxLevel}
                 key={key}
+                selectClass=""
               />
             );
           })}
@@ -204,6 +205,7 @@ const LookUp = () => {
                 minLevel={minLevel}
                 maxLevel={maxLevel}
                 key={key}
+                selectClass=""
               />
             );
           })}

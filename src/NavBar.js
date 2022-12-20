@@ -2,8 +2,8 @@ import { React, useState } from "react";
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
 import Arrow from "./arrow.png";
 import Elf from "./elf.png";
-import Burger from "./burger.svg";
-import Close from "./close.svg";
+import Burger from "./burger.png";
+import Close from "./close.png";
 
 const NavBar = () => {
   const [classImg, setClassImg] = useState("");
@@ -58,7 +58,6 @@ const NavBar = () => {
         alt="burger menu"
         id={isOpen ? "close-menu" : "burger-menu"}
         src={isOpen ? Close : Burger}
-        height={isOpen ? "80px" : "50px"}
         className={classImg}
         onClick={() => setIsOpen(!isOpen)}
       />
