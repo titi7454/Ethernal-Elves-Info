@@ -54,7 +54,14 @@ const ElfCard = ({
     fetchData();
   }, [api]);
   if (loading === true) {
-    return <p>loading...</p>;
+    return (
+      <div className="middle-n">
+        <div className="ring">
+          Loading
+          <span className="circle"></span>
+        </div>
+      </div>
+    );
   } else if (
     // check min and max levels
     minLevel <= elfData.attributes[elfData.attributes.length - 1].value &&
@@ -70,6 +77,7 @@ const ElfCard = ({
   ) {
     return (
       <div key={myKey} className="child box">
+        <button className="btn--stats">i</button>
         <a
           target={"_blank"}
           rel={"noopener noreferrer"}

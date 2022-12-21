@@ -132,10 +132,10 @@ body {
 }
 
 @keyframes items {
-  0%{
+  0% {
     opacity: 0;
   }
-  100%{
+  100% {
     opacity: 1;
   }
 }
@@ -164,9 +164,11 @@ body {
   color: whitesmoke;
   font-size: medium;
   width: 200px;
+  height: 160px;
 }
 #pren {
   padding-left: 0.75rem;
+  padding-top: 1.2rem;
 }
 dl,
 dd,
@@ -187,6 +189,12 @@ dl p {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.middle-n {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .big {
@@ -672,6 +680,21 @@ option:hover {
 
 #burger-menu {
   display: none;
+}
+
+.btn--stats {
+  width: 30px;
+  position: absolute;
+  left: 1.25rem;
+  top: 2.55rem;
+  border-radius: 50%;
+  color: var(--col);
+  border: var(--bg) solid 1px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  background-color: transparent;
+  z-index: 999;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 1530px) {

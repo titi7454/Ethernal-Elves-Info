@@ -211,6 +211,8 @@ const Analytics = () => {
           </div>
         </a>
       </div>
+      <h2 className="prices">Analythics</h2>
+      <div></div>
     </div>
   );
 };

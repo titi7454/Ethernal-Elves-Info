@@ -8,7 +8,6 @@ const LookUp = () => {
   const [wallet, setWallet] = useState("");
   const [minLevel, setMinLevel] = useState("0");
   const [maxLevel, setMaxLevel] = useState("100");
-  const [ring, setRing] = useState("ring");
   const [hidden, setHidden] = useState("hidden");
   const [hidden1, setHidden1] = useState("hidden");
   const [addressEntered, setAddressEntered] = useState(false);
@@ -37,7 +36,6 @@ const LookUp = () => {
     fetchOwnerData();
     if (ownerData === null || ownerData.sentinels.length === 0) {
       setLoading(true);
-      setRing("hidden");
       setHidden1("");
     } else {
       setLoading(false);
@@ -80,7 +78,6 @@ const LookUp = () => {
   const restart = () => {
     setLoading(true);
     setWallet("");
-    setRing("ring");
     setHidden1("hidden");
     setAddressEntered(false);
     setMaxLevel("100");
@@ -107,9 +104,9 @@ const LookUp = () => {
         </div>
         <div className={hidden} id="overlay"></div>
         <div className="first">
-          <h1 id="top">Searching for elves</h1>
+          <h1 id="top">Look up a wallet</h1>
           <div className="initial">
-            <div className="ring" id={ring}>
+            <div className="ring" >
               Loading
               <span className="circle"></span>
             </div>
@@ -153,7 +150,7 @@ const LookUp = () => {
               <Checkbox id="elder" checked={elder} onChange={onElderChange} />
             </div>
             <div className="lb2">
-            <div>Sentinels</div>
+              <div>Sentinels</div>
               <Checkbox
                 id="sentinel"
                 checked={sentinel}

@@ -41,7 +41,7 @@ const NavBar = () => {
       {
         <ul className={"navitems-n"}>
           <CustomLink to="/Ethernal-Elves-Info">Analytics</CustomLink>
-          <CustomLink to="/LookUp">LookUp</CustomLink>
+          <CustomLink to="/LookUp">Look-up</CustomLink>
           <CustomLink to="/Elves">Elves</CustomLink>
           <CustomLink to="/Elders">Elders</CustomLink>
         </ul>
@@ -49,7 +49,7 @@ const NavBar = () => {
       {isOpen && (
         <ul className={"navitems"}>
           <CustomLink to="/Ethernal-Elves-Info">Analytics</CustomLink>
-          <CustomLink to="/LookUp">LookUp</CustomLink>
+          <CustomLink to="/LookUp">Look up</CustomLink>
           <CustomLink to="/Elves">Elves</CustomLink>
           <CustomLink to="/Elders">Elders</CustomLink>
         </ul>
