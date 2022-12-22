@@ -13,6 +13,7 @@ const LookUp = () => {
   const [addressEntered, setAddressEntered] = useState(false);
   const [elder, setElder] = useState(true);
   const [sentinel, setSentinel] = useState(true);
+
   const collectionElders = "0xfb2b13c622d1590f9199f75d975574e8240b2618";
   const colNameElders = "elders";
   const collectionSentinels = "0xa351b769a01b445c04aa1b8e6275e03ec05c1e75";
@@ -106,10 +107,7 @@ const LookUp = () => {
         <div className="first">
           <h1 id="top">Look up a wallet</h1>
           <div className="initial">
-            <div className="ring" >
-              Loading
-              <span className="circle"></span>
-            </div>
+            
             <div className={hidden1} id="red">
               NO ELVES ENCOUNTERED
             </div>
@@ -143,8 +141,8 @@ const LookUp = () => {
         <button className="search" id="back" onClick={restart}>
           Back
         </button>
-        <div className="checkbox" id="chmb">
-          <div className="checkbox">
+        <div className="checkbox" >
+          <div className="checkbox" id="chmb">
             <div className="lb1">
               <div>Elders</div>
               <Checkbox id="elder" checked={elder} onChange={onElderChange} />

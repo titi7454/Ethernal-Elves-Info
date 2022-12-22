@@ -14,11 +14,12 @@ const ElfCard = ({
   const api = `https://api.ethernalelves.com/api/${collectionName}/${elfId}`;
   const [elfData, setElfData] = useState("");
   const [loading, setLoading] = useState(true);
+  const [flip, setFlip] = useState(false);
 
   const a = (n) => {
     return (
-      <div>
-        {elfData.attributes[n].trait_type}:{elfData.attributes[n].value}
+      <div className="statsspace">
+        {elfData.attributes[n].trait_type}: {elfData.attributes[n].value}
       </div>
     );
   };
@@ -27,7 +28,7 @@ const ElfCard = ({
     return Math.floor(Date.now() / 1000 + 3600);
   };
 
-  const isElder = () => {
+  const isReady = () => {
     for (let i = 0; i < elfData.attributes.length; i++) {
       if (elfData.attributes[i].trait_type === "Cooldown") {
         const isZero =
@@ -36,6 +37,14 @@ const ElfCard = ({
             : getCD(elfData.attributes[i].value);
         return isZero;
       }
+    }
+  };
+
+  const isElder = () => {
+    if (elfData.attributes.length > 13) {
+      return true;
+    } else {
+      return false;
     }
   };
 
@@ -49,7 +58,6 @@ const ElfCard = ({
       const result = await response.json();
       setElfData(result);
       setLoading(false);
-      console.log(result);
     };
     fetchData();
   }, [api]);
@@ -76,24 +84,55 @@ const ElfCard = ({
       : false
   ) {
     return (
-      <div key={myKey} className="child box">
-        <button className="btn--stats">i</button>
-        <a
-          target={"_blank"}
-          rel={"noopener noreferrer"}
-          href={`https://opensea.io/assets/ethereum/${collectionId}/${elfId}`}
+      <div key={myKey} className={`child box card ${flip ? "flip" : ""}`}>
+        <button
+          className={`btn--stats ${flip ? "hidden" : ""}`}
+          onClick={() => setFlip(!flip)}
         >
-          <div className="box-inner">
-            <div>{elfData.name}</div>
-            <div>
-              <img className="responsive" src={elfData.image} alt="elf"></img>
+          i
+        </button>
+        <div className="front">
+          <a
+            target={"_blank"}
+            rel={"noopener noreferrer"}
+            href={`https://opensea.io/assets/ethereum/${collectionId}/${elfId}`}
+            className={flip ? "hidden" : ""}
+          >
+            <div className="box-inner">
+              <div>{elfData.name}</div>
+              <div>
+                <img className="responsive" src={elfData.image} alt="elf"></img>
+              </div>
+              <div>{a(0)}</div>
+              <div>{a(2)}</div>
+              <div>{a(elfData.attributes.length - 1)}</div>
+              {isReady()}
             </div>
-            <div>{a(0)}</div>
-            <div>{a(2)}</div>
-            <div>{a(elfData.attributes.length - 1)}</div>
-            {isElder()}
+          </a>
+        </div>
+        <div className={`back box-inner ${flip ? "" : "hidden"}`}>
+          <button
+            className="btn--stats"
+            id="btn--stats--back"
+            onClick={() => setFlip(!flip)}
+          >
+            i
+          </button>
+          <div className="backstats">
+            <div className="morestats">More stats</div>
+            {a(0)}
+            {a(2)}
+            {isElder() ? a(7) : a(6)}
+            {isElder() ? a(9) : a(7)}
+            {isElder() ? a(8) : a(9)}
+            {isElder() ? a(10) : ""}
+            {isElder() ? a(11) : ""}
+            {isElder() ? a(12) : ""}
+            {isElder() ? a(13) : ""}
+            {isElder() ? a(15) : a(11)}
+            {isReady()}
           </div>
-        </a>
+        </div>
       </div>
     );
   }

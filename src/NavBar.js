@@ -58,7 +58,6 @@ const NavBar = () => {
         alt="burger menu"
         id={isOpen ? "close-menu" : "burger-menu"}
         src={isOpen ? Close : Burger}
-        className={classImg}
         onClick={() => setIsOpen(!isOpen)}
       />
     </nav>
