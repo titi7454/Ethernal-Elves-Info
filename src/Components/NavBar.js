@@ -1,9 +1,9 @@
 import { React, useState } from "react";
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
-import Arrow from "./arrow.png";
-import Elf from "./elf.png";
-import Burger from "./burger.png";
-import Close from "./close.png";
+import Arrow from "../Assets/arrow.png";
+import Elf from "../Assets/elf.png";
+import Burger from "../Assets/burger.png";
+import Close from "../Assets/close.png";
 
 const NavBar = () => {
   const [classImg, setClassImg] = useState("");

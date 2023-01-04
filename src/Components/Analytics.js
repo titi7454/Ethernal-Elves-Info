@@ -1,7 +1,7 @@
 import { React, useEffect, useState, useCallback } from "react";
-import ethPng from "./eth.png";
-import moonPng from "./moon.png";
-import renPng from "./pren.png";
+import ethPng from "../Assets/eth.png";
+import moonPng from "../Assets/moon.png";
+import renPng from "../Assets/pren.png";
 
 const Analytics = () => {
   const apiElves = `https://api.opensea.io/api/v1/collection/ethernalelves/stats`;

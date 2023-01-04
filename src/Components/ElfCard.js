@@ -40,6 +40,18 @@ const ElfCard = ({
     }
   };
 
+  const selectedClass = () => {
+    if (selectClass === "") {
+      return true;
+    } else {
+      if (selectClass === elfData.attributes[0].value) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  };
+
   const isElder = () => {
     if (elfData.attributes.length > 13) {
       return true;
@@ -76,12 +88,8 @@ const ElfCard = ({
     maxLevel >= elfData.attributes[elfData.attributes.length - 1].value &&
     // if elder or sentinel option is available
     typeOfElf &&
+    selectedClass()
     // show all elves if no class is selected or show all elves of the selected class
-    selectClass === ""
-      ? true
-      : selectClass === elfData.attributes[0].value
-      ? true
-      : false
   ) {
     return (
       <div key={myKey} className={`child box card ${flip ? "flip" : ""}`}>

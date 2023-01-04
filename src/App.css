@@ -689,7 +689,7 @@ keyframes
 }
 
 #top {
-  padding-bottom: 5%;
+  padding-bottom: 30%;
 }
 
 .hidden {
@@ -705,7 +705,7 @@ keyframes
   color: red;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -45%);
+  transform: translate(-50%, -40%);
   font-size: 2.5rem;
   font-weight: 900;
 }
@@ -805,6 +805,9 @@ keyframes
 
   #help {
     padding: 2rem;
+  }
+  #red {
+    transform: translate(-50%, -50%);
   }
 }
 
