@@ -64,7 +64,7 @@ const LookUp = () => {
   };
 
   const handleSubmit = () => {
-    setHidden1("");
+    checkElves();
   };
 
   const onElderChange = (checked) => {
