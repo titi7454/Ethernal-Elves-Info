@@ -1,23 +1,44 @@
-#This is not an official page of EthernalElves
-#Their official page is https://www.ethernalelves.com/
+<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 
-EthernalElves Info (Placeholder?)
+<a name="readme-top"></a>
 
-I'm building my first app in React to get some experience working with it. 
-It's use case is to get data from different APIs in one place so you don't have to go and search all over the web.
-You can get currently see the floor price of the 2 collections and explore the holders' wallets.
+<!--
+*** Thanks for checking out the Best-README-Template. If you have a suggestion
+*** that would make this better, please fork the repo and create a pull request
+*** or simply open an issue with the tag "enhancement".
+*** Don't forget to give the project a star!
+*** Thanks again! Now go create something AMAZING! :D
+-->
 
-The website uses React.js/CSS (I'm also trying to improve my CSS skills)
+<!-- ABOUT THE PROJECT -->
 
-To run the project you need to:
+## About The Project
 
-->npm build
+[![Product Name Screen Shot][product-screenshot]](https://titi7454.github.io/Ethernal-Elves-Info/)
 
-and then
-
-->npm start
+This is a multi-page website using an API to get information about the different nfts. You can look at the different wallets that hold said nfts and also see additional information about each one. Another page shows the different prices of the nfts/tokens.
 
 
-The design is inspired by https://etherorcs-spy.vercel.app/
+### Built With
 
-I also got help from https://github.com/huskystudios/ (One of the creator of EthernalElves)
+Here are all the frameworks/libraries used in the project.
+
+- [![React][react.js]][react-url]
+- [![HTML][HTML5]][HTML-url]
+- [![CSS][CSS3]][css-url]
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
+[product-screenshot]: images/EEInfoDemo.gif
+[HTML5]: https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white
+[html-url]: https://html.com/
+[react.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[react-url]: https://reactjs.org/
+[CSS3]: https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white
+[css-url]: www.w3.org/
+[tailwind.css]: https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white
+[tailwind-url]: https://angular.io/
+[typescript.js]: https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white
+[typescript-url]: https://www.typescriptlang.org/
