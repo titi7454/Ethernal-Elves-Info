@@ -576,7 +576,14 @@ a:active {
   cursor: pointer;
 }
 
-
+.loot{
+  display: flex;
+  gap: 2rem;
+}
+.loot-grid{
+  display: grid;
+  grid-template-columns: 40px 1fr;
+}
 /*
 keyframes
 */

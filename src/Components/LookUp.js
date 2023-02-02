@@ -4,6 +4,7 @@ import ElfCard from "./ElfCard";
 
 const LookUp = () => {
   const [ownerData, setOwnerData] = useState([]);
+  const [lootData, setLootData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [wallet, setWallet] = useState("");
   const [minLevel, setMinLevel] = useState("0");
@@ -19,6 +20,7 @@ const LookUp = () => {
   const collectionSentinels = "0xa351b769a01b445c04aa1b8e6275e03ec05c1e75";
   const colNameSentinels = "sentinels";
   const apiAddress = `https://api.ethernalelves.com/api/owners/${wallet}`;
+  const apiLoot = `https://api.ethernalelves.com/api/player/${wallet}`;
 
   //https://cors-anywhere.herokuapp.com/
   //https://api.opensea.io/api/v1/asset/0xfb2b13c622d1590f9199f75d975574e8240b2618/1
@@ -30,8 +32,12 @@ const LookUp = () => {
     }
     const fetchOwnerAddress = await fetch(apiAddress);
     const resultOfAddress = await fetchOwnerAddress.json();
+    const fetchLoot = await fetch(apiLoot);
+    const resultOfLoot = await fetchLoot.json();
     setOwnerData(resultOfAddress);
-  }, [apiAddress, wallet]);
+    setLootData(resultOfLoot);
+    console.log(lootData)
+  }, [apiAddress, wallet, apiLoot]);
 
   const checkElves = () => {
     fetchOwnerData();
@@ -174,6 +180,19 @@ const LookUp = () => {
               />
             </div>
           </div>
+        </div>
+        <div className="loot">
+          {lootData.map((loot, id)=>{
+            let isResources = loot.name === "Resources"
+            let isTokens = loot.name === "Tokens"
+             return(
+              !isResources && !isTokens && <div key={id} className="loot-grid">
+                <img src={`../Assets/${loot.name}.png`}/>
+                {loot.value}
+                {loot.name}
+                </div>
+            )
+          })}
         </div>
         <div className="elves">
           {ownerData.elders.map((elders, key) => {
