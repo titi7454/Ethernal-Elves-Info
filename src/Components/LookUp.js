@@ -14,6 +14,7 @@ import Terra from "../Assets/Terra.png";
 const LookUp = () => {
   const [ownerData, setOwnerData] = useState([]);
   const [lootData, setLootData] = useState([]);
+  const [usernameData, setUsernameData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [wallet, setWallet] = useState("");
   const [minLevel, setMinLevel] = useState("0");
@@ -30,6 +31,7 @@ const LookUp = () => {
   const colNameSentinels = "sentinels";
   const apiAddress = `https://api.ethernalelves.com/api/owners/${wallet}`;
   const apiLoot = `https://api.ethernalelves.com/api/player/${wallet}`;
+  const apiUsernames = `https://api.ethernalelves.com/api/usernames/${wallet}`;
 
   //https://cors-anywhere.herokuapp.com/
   //https://api.opensea.io/api/v1/asset/0xfb2b13c622d1590f9199f75d975574e8240b2618/1
@@ -43,8 +45,12 @@ const LookUp = () => {
     const resultOfAddress = await fetchOwnerAddress.json();
     const fetchLoot = await fetch(apiLoot);
     const resultOfLoot = await fetchLoot.json();
+    const fetchUsernames = await fetch(apiUsernames);
+    const resultOfUsernames = await fetchUsernames.json();
     setOwnerData(resultOfAddress);
     setLootData(resultOfLoot);
+    setUsernameData(resultOfUsernames);
+    console.log(usernameData);
   }, [apiAddress, wallet, apiLoot]);
 
   const checkElves = () => {
@@ -60,7 +66,13 @@ const LookUp = () => {
   const lootItems = (n, img) => {
     return (
       <div className="flexloot">
-        <img src={img} width={40} height={40} alt={lootData[n].name} className="lootborder" />
+        <img
+          src={img}
+          width={40}
+          height={40}
+          alt={lootData[n].name}
+          className="lootborder"
+        />
         <div className="grid">
           <div>{lootData[n].value}</div>
           <div>{lootData[n].name}</div>
@@ -161,8 +173,16 @@ const LookUp = () => {
     );
   } else
     return (
-      //Load the nfts
       <div className="maindiv">
+        <div>
+          {`Welcome to ${
+            usernameData[0].discordUser
+              ? usernameData[0].discordUser
+              : usernameData[0].ensName
+              ? usernameData[0].ensName
+              : usernameData[0].ethAddress
+          }'s wallet`}
+        </div>
         <button className="search" id="back" onClick={restart}>
           Back
         </button>
@@ -209,8 +229,9 @@ const LookUp = () => {
               {lootItems(3, MOON)}
             </div>
           </div>
-          <div>{lootData[4].name}
-          <div className="lootItems">
+          <div>
+            {lootData[4].name}
+            <div className="lootItems">
               {lootItems(5, Artifacts)}
               {lootItems(6, Scrolls)}
               {lootItems(7, Aether)}
@@ -218,7 +239,8 @@ const LookUp = () => {
               {lootItems(9, Terra)}
               {lootItems(10, Frost)}
               {lootItems(11, Magma)}
-            </div></div>
+            </div>
+          </div>
         </div>
         <div className="elves">
           {ownerData.elders.map((elders, key) => {
