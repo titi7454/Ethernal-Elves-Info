@@ -55,11 +55,11 @@ a:active {
   height: auto;
 }
 
-.morestats{
+.morestats {
   font-weight: 600;
 }
 
-.statsspace{
+.statsspace {
   margin: 0.25rem;
 }
 
@@ -212,7 +212,6 @@ a:active {
 .coinimage {
   margin-right: 0.5rem;
 }
-
 
 .searchhelp {
   display: flex;
@@ -576,13 +575,34 @@ a:active {
   cursor: pointer;
 }
 
-.loot{
+.loot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2.5rem;
+}
+.flexloot {
+  display: flex;
+  align-items: center;
+  font-size: 1.25rem;
+  gap: 0.25rem;
+}
+.lootItems {
   display: flex;
   gap: 2rem;
 }
-.loot-grid{
+.lootItems-grid {
+  display: flex;
+  gap: 2rem;
+}
+.loot-grid {
   display: grid;
-  grid-template-columns: 40px 1fr;
+}
+.grid {
+  display: grid;
+}
+.lootborder{
+  border: 1px solid white;
 }
 /*
 keyframes
@@ -741,6 +761,9 @@ keyframes
   .elves {
     grid-template-columns: repeat(3, 1fr);
   }
+  .loot{
+    flex-direction: column;
+  }
 }
 
 @media only screen and (max-width: 1150px) {
@@ -749,6 +772,14 @@ keyframes
   }
   .elves {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .lootItems{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .lootItems-grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
@@ -804,6 +835,10 @@ keyframes
   .maindiv {
     padding: 2rem;
     padding-top: 0;
+  }
+
+  .flexloot{
+    font-size: 1rem;
   }
 
   #elfimage {
@@ -899,6 +934,20 @@ keyframes
 
   .select {
     margin: 1rem;
+  }
+
+  .loot{
+    margin-bottom: 1rem;
+    margin-top: 0.25rem;
+  }
+
+  .flexloot{
+    font-size: 0.75rem;
+  }
+
+  .lootItems-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
   }
 
   #close-menu {

@@ -1,6 +1,15 @@
 import { React, useEffect, useState, useCallback } from "react";
 import Checkbox from "./Checkbox";
 import ElfCard from "./ElfCard";
+import REN from "../Assets/REN.png";
+import MOON from "../Assets/MOON.png";
+import Aether from "../Assets/Aether.png";
+import Artifacts from "../Assets/Artifacts.png";
+import Scrolls from "../Assets/Scrolls.png";
+import Magma from "../Assets/Magma.png";
+import Frost from "../Assets/Frost.png";
+import Iron from "../Assets/Iron.png";
+import Terra from "../Assets/Terra.png";
 
 const LookUp = () => {
   const [ownerData, setOwnerData] = useState([]);
@@ -36,7 +45,6 @@ const LookUp = () => {
     const resultOfLoot = await fetchLoot.json();
     setOwnerData(resultOfAddress);
     setLootData(resultOfLoot);
-    console.log(lootData)
   }, [apiAddress, wallet, apiLoot]);
 
   const checkElves = () => {
@@ -47,6 +55,18 @@ const LookUp = () => {
     } else {
       setLoading(false);
     }
+  };
+  //`../Assets/${lootData[n].name}.png`
+  const lootItems = (n, img) => {
+    return (
+      <div className="flexloot">
+        <img src={img} width={40} height={40} alt={lootData[n].name} className="lootborder" />
+        <div className="grid">
+          <div>{lootData[n].value}</div>
+          <div>{lootData[n].name}</div>
+        </div>
+      </div>
+    );
   };
 
   const handleEnterAddress = (e) => {
@@ -113,7 +133,6 @@ const LookUp = () => {
         <div className="first">
           <h1 id="top">Look up a wallet</h1>
           <div className="initial">
-            
             <div className={hidden1} id="red">
               NO ELVES ENCOUNTERED
             </div>
@@ -147,7 +166,7 @@ const LookUp = () => {
         <button className="search" id="back" onClick={restart}>
           Back
         </button>
-        <div className="checkbox" >
+        <div className="checkbox">
           <div className="checkbox" id="chmb">
             <div className="lb1">
               <div>Elders</div>
@@ -182,17 +201,24 @@ const LookUp = () => {
           </div>
         </div>
         <div className="loot">
-          {lootData.map((loot, id)=>{
-            let isResources = loot.name === "Resources"
-            let isTokens = loot.name === "Tokens"
-             return(
-              !isResources && !isTokens && <div key={id} className="loot-grid">
-                <img src={`../Assets/${loot.name}.png`}/>
-                {loot.value}
-                {loot.name}
-                </div>
-            )
-          })}
+          <div>
+            {lootData[0].name}
+            <div className="lootItems">
+              {lootItems(1, REN)}
+              {lootItems(2, MOON)}
+              {lootItems(3, MOON)}
+            </div>
+          </div>
+          <div>{lootData[4].name}
+          <div className="lootItems">
+              {lootItems(5, Artifacts)}
+              {lootItems(6, Scrolls)}
+              {lootItems(7, Aether)}
+              {lootItems(8, Iron)}
+              {lootItems(9, Terra)}
+              {lootItems(10, Frost)}
+              {lootItems(11, Magma)}
+            </div></div>
         </div>
         <div className="elves">
           {ownerData.elders.map((elders, key) => {
