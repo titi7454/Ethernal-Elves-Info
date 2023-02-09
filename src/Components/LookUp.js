@@ -1,8 +1,10 @@
 import { React, useEffect, useState, useCallback } from "react";
 import Checkbox from "./Checkbox";
 import ElfCard from "./ElfCard";
+import OrcCard from "./OrcCard";
 import REN from "../Assets/REN.png";
 import MOON from "../Assets/MOON.png";
+import ZUG from "../Assets/ZUG.png";
 import Aether from "../Assets/Aether.png";
 import Artifacts from "../Assets/Artifacts.png";
 import Scrolls from "../Assets/Scrolls.png";
@@ -18,17 +20,20 @@ const LookUp = () => {
   const [loading, setLoading] = useState(true);
   const [wallet, setWallet] = useState("");
   const [minLevel, setMinLevel] = useState("0");
-  const [maxLevel, setMaxLevel] = useState("100");
+  const [maxLevel, setMaxLevel] = useState("1000");
   const [hidden, setHidden] = useState("hidden");
   const [hidden1, setHidden1] = useState("hidden");
   const [addressEntered, setAddressEntered] = useState(false);
   const [elder, setElder] = useState(true);
   const [sentinel, setSentinel] = useState(true);
+  const [orc, setOrc] = useState(true);
 
   const collectionElders = "0xfb2b13c622d1590f9199f75d975574e8240b2618";
   const colNameElders = "elders";
   const collectionSentinels = "0xa351b769a01b445c04aa1b8e6275e03ec05c1e75";
   const colNameSentinels = "sentinels";
+  const collectionOrcs = "0x3abedba3052845ce3f57818032bfa747cded3fca";
+  const colNameOrcs = "orcs";
   const apiAddress = `https://api.ethernalelves.com/api/owners/${wallet}`;
   const apiLoot = `https://api.ethernalelves.com/api/player/${wallet}`;
   const apiUsernames = `https://api.ethernalelves.com/api/usernames/${wallet}`;
@@ -50,8 +55,8 @@ const LookUp = () => {
     setOwnerData(resultOfAddress);
     setLootData(resultOfLoot);
     setUsernameData(resultOfUsernames);
-    console.log(usernameData);
-  }, [apiAddress, wallet, apiLoot]);
+    console.log(resultOfLoot);
+  }, [apiAddress, wallet, apiLoot, apiUsernames]);
 
   const checkElves = () => {
     fetchOwnerData();
@@ -68,7 +73,7 @@ const LookUp = () => {
       <div className="flexloot">
         <img
           src={img}
-          width={40}
+          width={img === ZUG ? 50 : 40}
           height={40}
           alt={lootData[n].name}
           className="lootborder"
@@ -111,6 +116,10 @@ const LookUp = () => {
 
   const onSentinelChange = (checked) => {
     setSentinel(checked);
+  };
+
+  const onOrcChange = (checked) => {
+    setOrc(checked);
   };
 
   //Go back to the loading screen
@@ -200,6 +209,10 @@ const LookUp = () => {
                 onChange={onSentinelChange}
               />
             </div>
+            <div className="lb2">
+              <div>Orcs</div>
+              <Checkbox id="orc" checked={orc} onChange={onOrcChange} />
+            </div>
           </div>
           <div className="levels-input">
             <div>
@@ -226,19 +239,20 @@ const LookUp = () => {
             <div className="lootItems">
               {lootItems(1, REN)}
               {lootItems(2, MOON)}
-              {lootItems(3, MOON)}
+              {lootItems(3, ZUG)}
+              {lootItems(4, MOON)}
             </div>
           </div>
           <div>
-            {lootData[4].name}
+            {lootData[5].name}
             <div className="lootItems">
-              {lootItems(5, Artifacts)}
-              {lootItems(6, Scrolls)}
-              {lootItems(7, Aether)}
-              {lootItems(8, Iron)}
-              {lootItems(9, Terra)}
-              {lootItems(10, Frost)}
-              {lootItems(11, Magma)}
+              {lootItems(6, Artifacts)}
+              {lootItems(7, Scrolls)}
+              {lootItems(8, Aether)}
+              {lootItems(9, Iron)}
+              {lootItems(10, Terra)}
+              {lootItems(11, Frost)}
+              {lootItems(12, Magma)}
             </div>
           </div>
         </div>
@@ -264,6 +278,20 @@ const LookUp = () => {
                 elfId={sentinels}
                 collectionId={collectionSentinels}
                 collectionName={colNameSentinels}
+                minLevel={minLevel}
+                maxLevel={maxLevel}
+                key={key}
+                selectClass=""
+              />
+            );
+          })}
+          {ownerData.orcs.map((orcs, key) => {
+            return (
+              <OrcCard
+                typeOfElf={orc}
+                orcId={orcs}
+                collectionId={collectionOrcs}
+                collectionName={colNameOrcs}
                 minLevel={minLevel}
                 maxLevel={maxLevel}
                 key={key}
