@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Ethernal-Elves-Info/static/css/main.6c7a4a0d.css",
-    "main.js": "/Ethernal-Elves-Info/static/js/main.117008da.js",
+    "main.css": "/Ethernal-Elves-Info/static/css/main.3d65663f.css",
+    "main.js": "/Ethernal-Elves-Info/static/js/main.69bb6767.js",
     "static/js/787.2746eaee.chunk.js": "/Ethernal-Elves-Info/static/js/787.2746eaee.chunk.js",
     "static/media/Artifacts.png": "/Ethernal-Elves-Info/static/media/Artifacts.34b61c90d8a522d8d28a.png",
     "static/media/eth.png": "/Ethernal-Elves-Info/static/media/eth.5447cb248ab7c0fc03d5.png",
@@ -12,12 +12,12 @@
     "static/media/arrow.png": "/Ethernal-Elves-Info/static/media/arrow.d15ec9835d34c5b5e72d.png",
     "static/media/Magma.png": "/Ethernal-Elves-Info/static/media/Magma.7385c142a535bb2c163b.png",
     "index.html": "/Ethernal-Elves-Info/index.html",
-    "main.6c7a4a0d.css.map": "/Ethernal-Elves-Info/static/css/main.6c7a4a0d.css.map",
-    "main.117008da.js.map": "/Ethernal-Elves-Info/static/js/main.117008da.js.map",
+    "main.3d65663f.css.map": "/Ethernal-Elves-Info/static/css/main.3d65663f.css.map",
+    "main.69bb6767.js.map": "/Ethernal-Elves-Info/static/js/main.69bb6767.js.map",
     "787.2746eaee.chunk.js.map": "/Ethernal-Elves-Info/static/js/787.2746eaee.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6c7a4a0d.css",
-    "static/js/main.117008da.js"
+    "static/css/main.3d65663f.css",
+    "static/js/main.69bb6767.js"
   ]
 }
