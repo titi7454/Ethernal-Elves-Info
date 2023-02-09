@@ -48,7 +48,7 @@ const NavBar = () => {
         </ul>
       }
       {isOpen && (
-        <ul className={"navitems"} onClick={!isOpen}>
+        <ul className={"navitems"} onClick={() => setIsOpen(!isOpen)}>
           <CustomLink to="/Ethernal-Elves-Info">Analytics</CustomLink>
           <CustomLink to="/LookUp">Look up</CustomLink>
           <CustomLink to="/Elves">Elves</CustomLink>
