@@ -12,6 +12,7 @@ import Magma from "../Assets/Magma.png";
 import Frost from "../Assets/Frost.png";
 import Iron from "../Assets/Iron.png";
 import Terra from "../Assets/Terra.png";
+import MapCard from "./MapCard";
 
 const LookUp = () => {
   const [ownerData, setOwnerData] = useState([]);
@@ -27,6 +28,7 @@ const LookUp = () => {
   const [elder, setElder] = useState(true);
   const [sentinel, setSentinel] = useState(true);
   const [orc, setOrc] = useState(true);
+  const [map, setMap] = useState(true);
 
   const collectionElders = "0xfb2b13c622d1590f9199f75d975574e8240b2618";
   const colNameElders = "elders";
@@ -55,7 +57,6 @@ const LookUp = () => {
     setOwnerData(resultOfAddress);
     setLootData(resultOfLoot);
     setUsernameData(resultOfUsernames);
-    console.log(resultOfLoot);
   }, [apiAddress, wallet, apiLoot, apiUsernames]);
 
   const checkElves = () => {
@@ -120,6 +121,10 @@ const LookUp = () => {
 
   const onOrcChange = (checked) => {
     setOrc(checked);
+  };
+
+  const onMapChange = (checked) => {
+    setMap(checked);
   };
 
   //Go back to the loading screen
@@ -213,6 +218,10 @@ const LookUp = () => {
               <div>Orcs</div>
               <Checkbox id="orc" checked={orc} onChange={onOrcChange} />
             </div>
+            <div className="lb2">
+              <div>Settlements</div>
+              <Checkbox id="map" checked={map} onChange={onMapChange} />
+            </div>
           </div>
           <div className="levels-input">
             <div>
@@ -296,6 +305,15 @@ const LookUp = () => {
                 maxLevel={maxLevel}
                 key={key}
                 selectClass=""
+              />
+            );
+          })}
+          {ownerData.settlements.map((settlements, key) => {
+            return (
+              <MapCard
+              mapId={settlements}
+              typeOfElf={map}
+              key={key}
               />
             );
           })}

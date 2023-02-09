@@ -883,6 +883,8 @@ keyframes
   .checkbox {
     font-size: 1.25rem;
     gap: 1;
+    padding: 0;
+    margin: 0;
   }
 
   .elves {
@@ -970,7 +972,8 @@ keyframes
       brightness(115%) contrast(92%);
   }
   #chmb {
-    display: block;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   #overlay {
