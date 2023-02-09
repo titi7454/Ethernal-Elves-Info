@@ -9,7 +9,6 @@ const ElfCard = ({
   maxLevel,
   orcId,
   myKey,
-  selectClass,
 }) => {
   const api = `https://api.ethernalelves.com/api/${collectionName}/${orcId}`;
   const [orcData, setOrcData] = useState("");

@@ -6,6 +6,7 @@ import NavBar from "./Components/NavBar";
 import { Route, Routes } from "react-router-dom";
 import Elves from "./Components/Elves";
 import Elders from "./Components/Elders";
+import Orcs from "./Components/Orcs";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/LookUp" element={<LookUp />} />
         <Route path="/Elves" element={<Elves />} />
         <Route path="/Elders" element={<Elders />} />
+        <Route path="/Orcs" element={<Orcs />} />
       </Routes>
     </div>
   );

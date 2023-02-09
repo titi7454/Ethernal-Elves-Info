@@ -44,14 +44,16 @@ const NavBar = () => {
           <CustomLink to="/LookUp">Look-up</CustomLink>
           <CustomLink to="/Elves">Elves</CustomLink>
           <CustomLink to="/Elders">Elders</CustomLink>
+          <CustomLink to="/Orcs">Orcs</CustomLink>
         </ul>
       }
       {isOpen && (
-        <ul className={"navitems"}>
+        <ul className={"navitems"} onClick={!isOpen}>
           <CustomLink to="/Ethernal-Elves-Info">Analytics</CustomLink>
           <CustomLink to="/LookUp">Look up</CustomLink>
           <CustomLink to="/Elves">Elves</CustomLink>
           <CustomLink to="/Elders">Elders</CustomLink>
+          <CustomLink to="/Orcs">Orcs</CustomLink>
         </ul>
       )}
       <img
