@@ -73,6 +73,26 @@ a:active {
   gap: 2px;
 }
 
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.map--back{
+  width: 30px;
+  position: absolute;
+  left: 1.25rem;
+  top: 2rem;
+  border-radius: 50%;
+  color: var(--col);
+  border: var(--bg) solid 1px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  background-color: transparent;
+  z-index: 999;
+  cursor: pointer;
+}
+
 .eelink {
   border: 2px solid;
   border-image: repeating-linear-gradient(
@@ -167,7 +187,10 @@ a:active {
 .card.flip {
   --rotate-y: 180deg;
 }
-
+.map--grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
 .card .front,
 .card .back {
   backface-visibility: hidden;
@@ -466,6 +489,11 @@ a:active {
   right: -2px;
 }
 
+.map {
+  padding: 1.25rem;
+  padding-bottom: 5.3rem;
+}
+
 .navitems-n {
   font-size: 1.25rem;
 }
@@ -601,7 +629,7 @@ a:active {
 .grid {
   display: grid;
 }
-.lootborder{
+.lootborder {
   border: 1px solid white;
 }
 /*
@@ -761,8 +789,11 @@ keyframes
   .elves {
     grid-template-columns: repeat(3, 1fr);
   }
-  .loot{
+  .loot {
     flex-direction: column;
+  }
+  .map{
+    padding-bottom: 2.1rem;
   }
 }
 
@@ -773,11 +804,11 @@ keyframes
   .elves {
     grid-template-columns: repeat(2, 1fr);
   }
-  .lootItems{
+  .lootItems {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
   }
-  .lootItems-grid{
+  .lootItems-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
   }
@@ -837,7 +868,7 @@ keyframes
     padding-top: 0;
   }
 
-  .flexloot{
+  .flexloot {
     font-size: 1rem;
   }
 
@@ -938,16 +969,16 @@ keyframes
     margin: 1rem;
   }
 
-  .loot{
+  .loot {
     margin-bottom: 1rem;
     margin-top: 0.25rem;
   }
 
-  .flexloot{
+  .flexloot {
     font-size: 0.75rem;
   }
 
-  .lootItems-grid{
+  .lootItems-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
   }
