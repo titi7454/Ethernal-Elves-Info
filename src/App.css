@@ -903,7 +903,7 @@ keyframes
 
   .navflex {
     width: 230px;
-    font-size: 0.65rem;
+    font-size: 0.7rem;
   }
 
   .box-inner {
@@ -946,8 +946,7 @@ keyframes
   }
 
   .navtitle {
-    scale: 1;
-    padding-left: 0.5rem;
+    scale: .8;
   }
 
   .title {
@@ -1029,7 +1028,9 @@ keyframes
     display: grid;
     grid-template-columns: repeat(3, 1fr);
   }
-
+  .banner button{
+    right: 1%;
+  }
   #close-menu {
     position: absolute;
     right: 4.3%;

@@ -7,10 +7,12 @@ function Banner() {
     return (
       <div className="banner">
         <div>
-        There is a new update. Check it out here:{" "}
-        <Link to="/Changelog">Changelog</Link>
+          There is a new update. Check it out here:{" "}
+          <Link to="/Changelog" onClick={() => setIsActive(false)}>
+            Changelog
+          </Link>
         </div>
-        <button onClick={()=>setIsActive(false)}>X</button>
+        <button onClick={() => setIsActive(false)}>X</button>
       </div>
     );
   }
