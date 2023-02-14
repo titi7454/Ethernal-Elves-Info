@@ -1,4 +1,5 @@
 import { React, useEffect, useState, useCallback } from "react";
+import { ethers } from "ethers";
 import Checkbox from "./Checkbox";
 import ElfCard from "./ElfCard";
 import OrcCard from "./OrcCard";
@@ -24,11 +25,12 @@ const LookUp = () => {
   const [maxLevel, setMaxLevel] = useState("1000");
   const [hidden, setHidden] = useState("hidden");
   const [hidden1, setHidden1] = useState("hidden");
-  const [addressEntered, setAddressEntered] = useState(false);
   const [elder, setElder] = useState(true);
   const [sentinel, setSentinel] = useState(true);
   const [orc, setOrc] = useState(true);
   const [map, setMap] = useState(true);
+  const [ens, setEns] = useState("");
+  const [isEmpty, setIsEmpty] = useState(true);
 
   const collectionElders = "0xfb2b13c622d1590f9199f75d975574e8240b2618";
   const colNameElders = "elders";
@@ -39,13 +41,15 @@ const LookUp = () => {
   const apiAddress = `https://api.ethernalelves.com/api/owners/${wallet}`;
   const apiLoot = `https://api.ethernalelves.com/api/player/${wallet}`;
   const apiUsernames = `https://api.ethernalelves.com/api/usernames/${wallet}`;
-
+  const provider = new ethers.JsonRpcProvider(
+    `https://eth-mainnet.g.alchemy.com/v2/${process.env.REACT_APP_API_KEY}`
+  );
   //https://cors-anywhere.herokuapp.com/
   //https://api.opensea.io/api/v1/asset/0xfb2b13c622d1590f9199f75d975574e8240b2618/1
 
   //Fetch data from the api
   const fetchOwnerData = useCallback(async () => {
-    if (wallet === "") {
+    if (wallet.length <= 41){
       return;
     }
     const fetchOwnerAddress = await fetch(apiAddress);
@@ -57,7 +61,7 @@ const LookUp = () => {
     setOwnerData(resultOfAddress);
     setLootData(resultOfLoot);
     setUsernameData(resultOfUsernames);
-  }, [apiAddress, wallet, apiLoot, apiUsernames]);
+  }, [apiAddress, apiLoot, apiUsernames, wallet.length]);
 
   const checkElves = () => {
     fetchOwnerData();
@@ -87,16 +91,12 @@ const LookUp = () => {
     );
   };
 
-  const handleEnterAddress = (e) => {
-    let walletAddress = e;
-    walletAddress = walletAddress.toLowerCase();
-    if (walletAddress.length === 42) {
-      setWallet(e);
-      setAddressEntered(true);
-    } else {
-      setAddressEntered(false);
-    }
-    setWallet(e);
+  const handleEnterAddress = async (e) => {
+    setEns(e);
+    const resolver = await provider.resolveName(e);
+    const isEns = resolver !== null ? resolver : e;
+    setWallet(isEns);
+    setIsEmpty(false)
   };
 
   const handleMinLevel = (e) => {
@@ -130,9 +130,8 @@ const LookUp = () => {
   //Go back to the loading screen
   const restart = () => {
     setLoading(true);
-    setWallet("");
+    setEns("");
     setHidden1("hidden");
-    setAddressEntered(false);
     setMaxLevel("100");
     setMinLevel("0");
   };
@@ -166,14 +165,14 @@ const LookUp = () => {
               maxLength={42}
               className="searchbar"
               placeholder="Enter address"
-              value={wallet}
+              value={ens}
               onChange={(e) => handleEnterAddress(e.target.value)}
             />
             <div className="searchhelp">
               <button
                 className="search"
                 onClick={handleSubmit}
-                disabled={!addressEntered}
+                disabled={isEmpty}
               >
                 Search
               </button>
@@ -309,13 +308,7 @@ const LookUp = () => {
             );
           })}
           {ownerData.settlements.map((settlements, key) => {
-            return (
-              <MapCard
-              mapId={settlements}
-              typeOfElf={map}
-              key={key}
-              />
-            );
+            return <MapCard mapId={settlements} typeOfElf={map} key={key} />;
           })}
         </div>
       </div>
