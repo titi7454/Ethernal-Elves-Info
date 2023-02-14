@@ -78,7 +78,7 @@ a:active {
   flex-direction: column;
 }
 
-.map--back{
+.map--back {
   width: 30px;
   position: absolute;
   left: 1.25rem;
@@ -602,7 +602,54 @@ a:active {
   z-index: 999;
   cursor: pointer;
 }
+.changelog {
+  font-size: 4rem;
+  font-weight: bold;
+  padding-bottom: 0.5rem;
+}
+.version {
+  font: 2rem;
+  padding-bottom: 0.25rem;
+}
+.banner {
+  background: rgb(72, 77, 87);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.banner button{
+  background-color: rgb(72, 77, 87);
+  border: none;
+  font-size: 1.5rem;
+  position: absolute;
+  right: 0;
+  color: white;
+}
+
+.banner a:link,
+.banner a:visited {
+  color: var(--col);
+}
+
+ul.changelog--list {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 1em;
+}
+ul.changelog--list > li:before {
+  display: inline-block;
+  content: "-";
+  width: 1em;
+  margin-left: -2em;
+}
+.changelog--main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem;
+}
 .loot {
   display: flex;
   align-items: center;
@@ -676,7 +723,7 @@ keyframes
     height: 0;
   }
   100% {
-    height: 12%;
+    height: 18%;
   }
 }
 
@@ -792,7 +839,7 @@ keyframes
   .loot {
     flex-direction: column;
   }
-  .map{
+  .map {
     padding-bottom: 2.1rem;
   }
 }
@@ -933,7 +980,7 @@ keyframes
     background-color: #3b414b;
     display: initial !important;
     padding: 20px;
-    height: 13%;
+    height: 18%;
     animation: normal 0.5s dropdown;
   }
 

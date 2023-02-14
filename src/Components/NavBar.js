@@ -45,6 +45,7 @@ const NavBar = () => {
           <CustomLink to="/Elves">Elves</CustomLink>
           <CustomLink to="/Elders">Elders</CustomLink>
           <CustomLink to="/Orcs">Orcs</CustomLink>
+          <CustomLink to="/Changelog">Changelog</CustomLink>
         </ul>
       }
       {isOpen && (
@@ -54,6 +55,7 @@ const NavBar = () => {
           <CustomLink to="/Elves">Elves</CustomLink>
           <CustomLink to="/Elders">Elders</CustomLink>
           <CustomLink to="/Orcs">Orcs</CustomLink>
+          <CustomLink to="/Changelog">Changelog</CustomLink>
         </ul>
       )}
       <img
