@@ -264,6 +264,9 @@ const LookUp = () => {
             </div>
           </div>
         </div>
+        <div>
+          {`Sentinels: ${ownerData.sentinels.length} Elders: ${ownerData.elders.length} Orcs: ${ownerData.orcs.length}`}
+        </div>
         <div className="elves">
           {ownerData.elders.map((elders, key) => {
             return (
