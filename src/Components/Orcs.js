@@ -1,7 +1,7 @@
 import { React, useCallback, useEffect, useState } from "react";
 import OrcCard from "./OrcCard";
 
-const Elves = () => {
+const Orcs = () => {
   const [loadedElves, setLoadedElves] = useState(25);
   const [orcsArr, setElvesArr] = useState([
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
@@ -12,7 +12,7 @@ const Elves = () => {
   const collectionOrcs = "0x3abedba3052845ce3f57818032bfa747cded3fca";
   const colNameOrcs = "orcs";
 
-  const elfData = useCallback(() => {
+  const orcData = useCallback(() => {
     for (let i = orcsArr[orcsArr.length - 1] + 1; i <= loadedElves; i++) {
       setElvesArr((o) => [...o, i]);
     }
@@ -27,8 +27,8 @@ const Elves = () => {
   };
 
   useEffect(() => {
-    elfData();
-  }, [loadedElves, elfData]);
+    orcData();
+  }, [loadedElves, orcData]);
   return (
     <div className="maindiv">
       <div className="levels-input">
@@ -75,4 +75,4 @@ const Elves = () => {
     </div>
   );
 };
-export default Elves;
+export default Orcs;

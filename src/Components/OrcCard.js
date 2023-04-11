@@ -1,7 +1,7 @@
 import { React, useEffect, useState } from "react";
 import Countdown from "react-countdown";
 
-const ElfCard = ({
+const OrcCard = ({
   typeOfElf,
   collectionId,
   collectionName,
@@ -55,6 +55,7 @@ const ElfCard = ({
   }, [api]);
 
   if (loading === true) {
+    if (!orcData?.attributes) return
     return (
       <div className="middle-n">
         <div className="ring">
@@ -65,13 +66,13 @@ const ElfCard = ({
     );
   } else if (
     // check min and max levels
-    minLevel <= orcData.attributes[orcData.attributes.length - 2].value &&
-    maxLevel >= orcData.attributes[orcData.attributes.length - 2].value &&
+    minLevel <= orcData.attributes[orcData.attributes.length - 3].value &&
+    maxLevel >= orcData.attributes[orcData.attributes.length - 3].value &&
     // if elder or sentinel option is available
     typeOfElf
     // show all elves if no class is selected or show all elves of the selected class
   ) {
-    return (
+     return (
       <div key={myKey} className={`child box card ${flip ? "flip" : ""}`}>
         <button
           className={`btn--stats ${flip ? "hidden" : ""}`}
@@ -126,4 +127,4 @@ const ElfCard = ({
   }
 };
 
-export default ElfCard;
+export default OrcCard;

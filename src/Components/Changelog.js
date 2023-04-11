@@ -1,10 +1,14 @@
 function Changelog() {
 
-
-
   return (
     <div className="changelog--main">
       <div className="changelog">Changelog</div>
+      <div className="version">v1.0.2</div>
+      <ul className="changelog--list">
+        <li>Orcs page is now fixed</li>
+        <li>Allies won't show up in the Look-up page</li>
+        <li>New button added to Analythics page. You can now check the prices in USD</li>
+      </ul>
       <div className="version">v1.0.1</div>
       <ul className="changelog--list">
         <li>Changelog page added</li>

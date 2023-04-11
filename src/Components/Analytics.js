@@ -3,6 +3,7 @@ import ethPng from "../Assets/eth.png";
 import moonPng from "../Assets/MOON.png";
 import renPng from "../Assets/REN.png";
 import artifact from "../Assets/Artifacts.png";
+import { getETHPrice } from "../utils/getETHPrice";
 
 const Analytics = () => {
   const apiElves = `https://api.opensea.io/api/v1/collection/ethernalelves/stats`;
@@ -16,8 +17,10 @@ const Analytics = () => {
   const [artifactStats, setArtifactStats] = useState({});
   const [moonStats, setMoonStats] = useState([]);
   const [renStats, setRenStats] = useState([]);
+  const [changePrice, setChangePrice] = useState(true);
   const [moon, setMoon] = useState("Loading...");
   const [ren, setRen] = useState("Loading...");
+  const [ethPrice, setEthPrice] = useState(0);
 
   const fetchElvesData = useCallback(async () => {
     const responseElves = await fetch(apiElves);
@@ -37,6 +40,8 @@ const Analytics = () => {
   const fetchTokenData = useCallback(async () => {
     const responseTokens = await fetch(apiTokens);
     const resultTokens = await responseTokens.json();
+    const value = await getETHPrice();
+    setEthPrice(Math.floor(Number(value[1]) / 100000000));
     setTokenStats(resultTokens);
     Calcs();
   }, [apiTokens, tokenStats.moonPrice, moon]);
@@ -69,6 +74,10 @@ const Analytics = () => {
     setArtifactStats(resultArtifact);
   }, [apiArtifact]);
 
+  const handlePriceChange = () => {
+    setChangePrice(!changePrice);
+  };
+
   useEffect(() => {
     fetchElvesData();
     fetchEldersData();
@@ -78,7 +87,12 @@ const Analytics = () => {
 
   return (
     <div>
-      <h2 className="prices">Current prices</h2>
+      <h2 className="prices">
+        Current prices{" "}
+        <button className="btnPrice" onClick={handlePriceChange}>
+          {changePrice ? "USD" : "ETH"}
+        </button>
+      </h2>
       <div className="stats">
         <a
           target={"_blank"}
@@ -90,17 +104,21 @@ const Analytics = () => {
               <dt className="big">Elders</dt>
               <dd>
                 <div className="middle">
-                  <img
+                  {changePrice && <img
                     className="coinimage"
                     alt="Ethereum symbol"
                     src={ethPng}
                     width="18px"
                     height="29px"
-                  ></img>
+                  ></img>}
                   <p>
                     {!elderStats.stats
                       ? "Loading..."
-                      : elderStats.stats.floor_price}
+                      : changePrice
+                      ? elderStats.stats.floor_price
+                      : "$" + Math.floor(
+                          elderStats.stats.floor_price * ethPrice * 100
+                        ) / 100}
                   </p>
                   <div className="space"></div>
                   <div>{isPositive(elderStats)}</div>
@@ -127,17 +145,21 @@ const Analytics = () => {
               <dt className="big">Elves</dt>
               <dd>
                 <div className="middle">
-                  <img
+                  {changePrice && <img
                     className="coinimage"
                     alt="Ethereum symbol"
                     src={ethPng}
                     width="18px"
                     height="29px"
-                  ></img>
+                  ></img>}
                   <p>
                     {!elfStats.stats
                       ? "Loading..."
-                      : elfStats.stats.floor_price}
+                      : changePrice
+                      ? elfStats.stats.floor_price
+                      : "$" + Math.floor(
+                          elfStats.stats.floor_price * ethPrice * 100
+                        ) / 100}
                   </p>
                   <div className="space"></div>
                   <div>{isPositive(elfStats)}</div>
@@ -173,7 +195,8 @@ const Analytics = () => {
                     width="29px"
                     height="29px"
                   ></img>
-                  <p>{moon}</p>
+                  <p>{changePrice
+                      ? moon : "$" + Math.floor(moon * ren * ethPrice * 1000) / 1000}</p>
                   <div className="space"></div>
                   <div>--%</div>
                 </div>
@@ -207,7 +230,12 @@ const Analytics = () => {
                     width="29px"
                     height="29px"
                   ></img>
-                  <p>{ren}</p>
+                  <p>
+                    {changePrice
+                      ? ren
+                      : "$" + Math.floor(ren * ethPrice * 1000000) / 1000000}
+                  </p>
+                  <div className="space"></div>
                   <div>--%</div>
                 </div>
               </dd>
@@ -240,7 +268,11 @@ const Analytics = () => {
                   <p>
                     {!artifactStats.stats
                       ? "Loading..."
-                      : artifactStats.stats.floor_price}
+                      : changePrice
+                      ? artifactStats.stats.floor_price
+                      : "$" + Math.floor(
+                          artifactStats.stats.floor_price * ethPrice * 100
+                        ) / 100}
                   </p>
                   <div className="space"></div>
                   <div>{isPositive(artifactStats)}</div>
@@ -261,6 +293,5 @@ const Analytics = () => {
   );
 };
 
-//<h2 className="prices">Analythics</h2>
-//<div></div>
+
 export default Analytics;

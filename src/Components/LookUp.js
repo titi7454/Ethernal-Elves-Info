@@ -37,6 +37,7 @@ const LookUp = () => {
   const collectionSentinels = "0xa351b769a01b445c04aa1b8e6275e03ec05c1e75";
   const colNameSentinels = "sentinels";
   const collectionOrcs = "0x3abedba3052845ce3f57818032bfa747cded3fca";
+  const collectionAllies = "0x62674b8ace7d939bb07bea6d32c55b74650e0eaa";
   const colNameOrcs = "orcs";
   const apiAddress = `https://api.ethernalelves.com/api/owners/${wallet}`;
   const apiLoot = `https://api.ethernalelves.com/api/player/${wallet}`;
@@ -301,7 +302,7 @@ const LookUp = () => {
               <OrcCard
                 typeOfElf={orc}
                 orcId={orcs}
-                collectionId={collectionOrcs}
+                collectionId={orcs > 5050 ? collectionAllies : collectionOrcs}
                 collectionName={colNameOrcs}
                 minLevel={minLevel}
                 maxLevel={maxLevel}
