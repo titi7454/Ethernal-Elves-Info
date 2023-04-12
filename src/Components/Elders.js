@@ -1,23 +1,23 @@
-import { React, useCallback, useEffect, useState } from "react";
+import { React, useEffect, useState } from "react";
 import ElfCard from "./ElfCard";
 
-const Elves = () => {
-  const [loadedElves, setLoadedElves] = useState(25);
-  const [elvesArr, setElvesArr] = useState([
+const Elders = () => {
+  const [loadedElders, setLoadedElders] = useState(25);
+  const [eldersArr, setEldersArr] = useState([
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
     22, 23, 24, 25,
   ]);
+  const [eldersArrCopy, setEldersArrCopy] = useState(eldersArr);
+  const [elderById, setElderById] = useState([]);
   const [minLevel, setMinLevel] = useState("0");
   const [maxLevel, setMaxLevel] = useState("100");
   const [selectClass, setSelectClass] = useState("");
   const collectionElders = "0xfb2b13c622d1590f9199f75d975574e8240b2618";
   const colNameElders = "elders";
 
-  const elfData = useCallback(() => {
-    for (let i = elvesArr[elvesArr.length - 1] + 1; i <= loadedElves; i++) {
-      setElvesArr((o) => [...o, i]);
-    }
-  }, [elvesArr, loadedElves]);
+  const copyArray = () => {
+    setEldersArr((eldersArr) => eldersArrCopy);
+  };
 
   const handleMinLevel = (e) => {
     setMinLevel(e);
@@ -27,13 +27,34 @@ const Elves = () => {
     setMaxLevel(e);
   };
 
-  useEffect(() => {
-    elfData();
-  }, [loadedElves, elfData]);
+  const handleSearchById = (e) => {
+    setElderById(e);
+    if (e.length === 0) {
+      copyArray();
+      return;
+    }
+    if (eldersArr.filter((elder) => elder === Number(e)) && !eldersArr) {
+      const filteredArr = eldersArr.filter((elder) => elder === Number(e));
+      setEldersArr([filteredArr]);
+    } else {
+      const newSearch = Number(e);
+      setEldersArr([newSearch]);
+    }
+  };
+
+  useEffect(() => {}, [loadedElders, eldersArr]);
   return (
     <div className="maindiv">
       <div className="levels-input">
         <div>
+          <div className="up">
+            <div>Search by Id</div>
+            <input
+              className="level"
+              value={elderById}
+              onChange={(e) => handleSearchById(e.target.value)}
+            />
+          </div>
           <div className="up">Min. Level</div>
           <input
             className="level"
@@ -49,7 +70,10 @@ const Elves = () => {
             onChange={(e) => handleMaxLevel(e.target.value)}
           />
         </div>
-        <select className="select" onChange={(e) => setSelectClass(e.target.value)}>
+        <select
+          className="select"
+          onChange={(e) => setSelectClass(e.target.value)}
+        >
           <option value="">-Select class-</option>
           <option value="Ranger">Ranger</option>
           <option value="Assassin">Assassin</option>
@@ -59,13 +83,13 @@ const Elves = () => {
           <option value="Mauler">Mauler</option>
         </select>
       </div>
-      <div className="elves">
-        {elvesArr.map((elders, key) => {
+      <div className="Elders">
+        {eldersArr.map((elders, key) => {
           return (
             <ElfCard
               key={key}
               typeOfElf={true}
-              data={elvesArr}
+              data={eldersArr}
               elfId={elders}
               collectionId={collectionElders}
               collectionName={colNameElders}
@@ -79,11 +103,11 @@ const Elves = () => {
       <button
         className="search"
         id="loadmore"
-        onClick={() => setLoadedElves(loadedElves + 25)}
+        onClick={() => setLoadedElders(loadedElders + 25)}
       >
         Load more
       </button>
     </div>
   );
 };
-export default Elves;
+export default Elders;

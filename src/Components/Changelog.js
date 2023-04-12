@@ -6,6 +6,7 @@ function Changelog() {
       <ul className="changelog--list">
         <li>Allies added</li>
         <li>The navigation bar is now sticky on larger screens</li>
+        <li>You can now search elves, elders and orcs by their IDs</li>
       </ul>
       <div className="version">v1.0.2</div>
       <ul className="changelog--list">

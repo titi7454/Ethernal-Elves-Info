@@ -1,4 +1,4 @@
-import { React, useCallback, useEffect, useState } from "react";
+import { React, useEffect, useState } from "react";
 import ElfCard from "./ElfCard";
 
 const Elves = () => {
@@ -7,17 +7,18 @@ const Elves = () => {
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
     22, 23, 24, 25,
   ]);
+  const [elvesArrCopy, setElvesArrCopy] = useState(elvesArr);
+  const [elfById, setElfById] = useState([]);
   const [minLevel, setMinLevel] = useState("0");
   const [maxLevel, setMaxLevel] = useState("100");
   const [selectClass, setSelectClass] = useState("");
   const collectionSentinels = "0xa351b769a01b445c04aa1b8e6275e03ec05c1e75";
   const colNameSentinels = "sentinels";
 
-  const elfData = useCallback(() => {
-    for (let i = elvesArr[elvesArr.length - 1] + 1; i <= loadedElves; i++) {
-      setElvesArr((o) => [...o, i]);
-    }
-  }, [elvesArr, loadedElves]);
+  const copyArray = () => {
+    setElvesArr((elvesArr) => elvesArrCopy);
+    console.log(elvesArrCopy);
+  };
 
   const handleMinLevel = (e) => {
     setMinLevel(e);
@@ -27,12 +28,36 @@ const Elves = () => {
     setMaxLevel(e);
   };
 
-  useEffect(() => {
-    elfData();
-  }, [loadedElves, elfData]);
+  const handleSearchById = (e) => {
+    setElfById(e);
+    if (e.length === 0) {
+      copyArray();
+      return;
+    }
+    if (elvesArr.filter((elf) => elf === Number(e)) && !elvesArr) {
+      const filteredArr = elvesArr.filter((elf) => elf === Number(e));
+      setElvesArr([filteredArr]);
+      console.log(
+        `filtered arr:${filteredArr}, e: ${e}, elves arr: ${elvesArr}`
+      );
+    } else {
+      const newSearch = Number(e);
+      setElvesArr([newSearch]);
+    }
+  };
+
+  useEffect(() => {}, [loadedElves, elvesArr]);
   return (
     <div className="maindiv">
       <div className="levels-input">
+        <div className="up">
+          <div>Search by Id</div>
+          <input
+            className="level"
+            value={elfById}
+            onChange={(e) => handleSearchById(e.target.value)}
+          />
+        </div>
         <div className="up">
           <div>Min. Level</div>
           <input
@@ -49,7 +74,10 @@ const Elves = () => {
             onChange={(e) => handleMaxLevel(e.target.value)}
           />
         </div>
-        <select className="select" onChange={(e) => setSelectClass(e.target.value)}>
+        <select
+          className="select"
+          onChange={(e) => setSelectClass(e.target.value)}
+        >
           <option value="">-Select class-</option>
           <option value="Ranger">Ranger</option>
           <option value="Assassin">Assassin</option>

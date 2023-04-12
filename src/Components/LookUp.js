@@ -62,7 +62,7 @@ const LookUp = () => {
     setOwnerData(resultOfAddress);
     setLootData(resultOfLoot);
     setUsernameData(resultOfUsernames);
-  }, [apiAddress, apiLoot, apiUsernames, wallet.length, wallet]);
+  }, [apiAddress, apiLoot, apiUsernames, wallet]);
 
   const checkElves = () => {
     fetchOwnerData();

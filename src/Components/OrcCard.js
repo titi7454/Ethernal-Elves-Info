@@ -50,6 +50,7 @@ const OrcCard = ({
       const result = await response.json();
       setOrcData(result);
       setLoading(false);
+      console.log(orcData.attributes);
     };
     fetchData();
   }, [api]);
@@ -71,7 +72,7 @@ const OrcCard = ({
     typeOfElf
     // show all elves if no class is selected or show all elves of the selected class
   ) {
-     return (
+    return (
       <div key={myKey} className={`child box card ${flip ? "flip" : ""}`}>
         <button
           className={`btn--stats ${flip ? "hidden" : ""}`}
@@ -106,20 +107,40 @@ const OrcCard = ({
           >
             i
           </button>
-          <div className="backstats">
-            <div className="morestats">More stats</div>
-            {a(0)}
-            {a(3)}
-            {a(1)}
-            {a(4)}
-            {a(6)}
-            {a(7)}
-            {a(8)}
-            {a(9)}
-            {a(10)}
-            {a(11)}
-            {isReady()}
-          </div>
+          {orcId < 5050 ? (
+            <div className="backstats">
+              <div className="morestats">More stats</div>
+              {a(0)}
+              {a(3)}
+              {a(1)}
+              {a(6)}
+              {a(4)}
+              {a(7)}
+              {a(8)}
+              {a(9)}
+              {a(10)}
+              {a(11)}
+              {a(12)}
+              {a(13)}
+              {a(15)}
+              {a(17)}
+              {isReady()}
+            </div>
+          ) : (
+            <div className="backstats">
+              <div className="morestats">More stats</div>
+              {a(0)}
+              {a(2)}
+              {a(3)}
+              {a(1)}
+              {a(6)}
+              {a(5)}
+              {a(15)}
+              {a(14)}
+              {a(16)}
+              {isReady()}
+            </div>
+          )}
         </div>
       </div>
     );
