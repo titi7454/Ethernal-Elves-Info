@@ -34,6 +34,10 @@ a:active {
   text-decoration: none;
 }
 
+.close {
+  cursor: pointer;
+}
+
 .App-header {
   color: white;
   text-align: center;
@@ -505,6 +509,9 @@ a:active {
   justify-content: space-between;
   align-items: stretch;
   padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
 .nav ul {
   padding: 0;
@@ -514,44 +521,45 @@ a:active {
   gap: 1rem;
 }
 
-.btnPrice{
+.btnPrice {
   font-family: system-ui, sans-serif;
   font-weight: bold;
   font-size: 1.5rem;
   cursor: pointer;
   border: none;
-  margin: .1em;
-  
+  margin: 0.1em;
 }
 
 .btnPrice {
-  --b: 3px;   /* border thickness */
-  --s: .15em; /* size of the corner */
+  --b: 3px; /* border thickness */
+  --s: 0.15em; /* size of the corner */
   --c: var(--col);
-  
-  padding: calc(.05em + var(--s)) calc(.3em + var(--s));
+
+  padding: calc(0.05em + var(--s)) calc(0.3em + var(--s));
   color: var(--c);
   --_p: var(--s);
-  background:
-    conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--c) 0)
-    var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
-  transition: .3s linear, color 0s, background-color 0s;
+  background: conic-gradient(
+      from 90deg at var(--b) var(--b),
+      #0000 90deg,
+      var(--c) 0
+    )
+    var(--_p) var(--_p) / calc(100% - var(--b) - 2 * var(--_p))
+    calc(100% - var(--b) - 2 * var(--_p));
+  transition: 0.3s linear, color 0s, background-color 0s;
   outline: var(--b) solid #0000;
-  outline-offset: .2em;
+  outline-offset: 0.2em;
 }
 
 .btnPrice:hover,
-.btnPrice:focus-visible{
+.btnPrice:focus-visible {
   --_p: 0px;
   outline-color: var(--c);
-  outline-offset: .05em;
+  outline-offset: 0.05em;
 }
 .btnPrice:active {
   background: var(--c);
   color: #fff;
 }
-
-
 
 .nav a {
   color: inherit;
@@ -657,7 +665,7 @@ a:active {
   align-items: center;
 }
 
-.banner button{
+.banner button {
   background-color: rgb(72, 77, 87);
   border: none;
   font-size: 1.5rem;
@@ -909,6 +917,29 @@ keyframes
     font-size: medium;
   }
 
+  .nav {
+    position: initial;
+  }
+
+  .navitems-n {
+    display: none !important;
+  }
+
+  .navitems {
+    flex-direction: column;
+    position: absolute;
+    top: 4.55rem;
+    left: 0;
+    font-size: 0.9rem;
+    width: 100%;
+    z-index: 5;
+    background-color: #3b414b;
+    display: initial !important;
+    padding: 20px;
+    height: 18%;
+    animation: normal 0.5s dropdown;
+  }
+
   .elves {
     display: flex;
     flex-wrap: wrap;
@@ -958,6 +989,24 @@ keyframes
     font-size: 1rem;
   }
 
+  .nav ul {
+    gap: 0.7rem;
+  }
+
+  .navitems li {
+    animation: normal 1.5s items;
+  }
+
+  .navitems li {
+    margin-top: 5px;
+    padding-left: 30px;
+    margin-bottom: 0.4rem;
+  }
+
+  .navtitle {
+    padding-left: 10px;
+  }
+
   #elfimage {
     height: 40px;
   }
@@ -967,108 +1016,6 @@ keyframes
   }
   #red {
     transform: translate(-50%, -50%);
-  }
-}
-
-@media only screen and (max-width: 450px) {
-  .child {
-    font-size: 1.25rem;
-    margin-bottom: 1rem;
-  }
-
-  .searchbar {
-    width: 350px;
-  }
-
-  .nav {
-    padding: 0.55rem;
-  }
-
-  .navtitle {
-    scale: .8;
-  }
-
-  .title {
-    font-size: 1rem;
-  }
-
-  .first {
-    max-width: 390px;
-  }
-
-  .checkbox {
-    font-size: 1.25rem;
-    gap: 1;
-    padding: 0;
-    margin: 0;
-  }
-
-  .elves {
-    padding-top: 0;
-  }
-
-  .navitems {
-    flex-direction: column;
-    position: absolute;
-    top: 4.55rem;
-    left: 0;
-    font-size: 0.9rem;
-    width: 100%;
-    z-index: 5;
-    background-color: #3b414b;
-    display: initial !important;
-    padding: 20px;
-    height: 18%;
-    animation: normal 0.5s dropdown;
-  }
-
-  .nav ul {
-    gap: 0.5rem;
-  }
-
-  .navitems li {
-    animation: normal 1.5s items;
-  }
-
-  .big {
-    font-size: large;
-    font-weight: 500;
-  }
-
-  .navitems li {
-    padding-left: 30px;
-    margin-bottom: 0.25rem;
-  }
-
-  .navitems-n {
-    display: none !important;
-  }
-
-  .levels-input {
-    align-items: center;
-    display: block;
-    gap: 1rem;
-  }
-
-  .select {
-    margin: 1rem;
-  }
-
-  .loot {
-    margin-bottom: 1rem;
-    margin-top: 0.25rem;
-  }
-
-  .flexloot {
-    font-size: 0.75rem;
-  }
-
-  .lootItems-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .banner button{
-    right: 1%;
   }
   #close-menu {
     position: absolute;
@@ -1096,5 +1043,88 @@ keyframes
 
   #overlay {
     max-height: 100%;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .child {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .searchbar {
+    width: 350px;
+  }
+
+  .nav {
+    padding: 0.55rem;
+  }
+
+  .navtitle {
+    scale: 0.8;
+  }
+
+  .title {
+    font-size: 1rem;
+  }
+
+  .first {
+    max-width: 390px;
+  }
+
+  .checkbox {
+    font-size: 1.25rem;
+    gap: 1;
+    padding: 0;
+    margin: 0;
+  }
+
+  .elves {
+    padding-top: 0;
+  }
+
+  .nav ul {
+    gap: 0.5rem;
+  }
+
+  .navitems li {
+    animation: normal 1.5s items;
+  }
+
+  .navitems li {
+    padding-left: 30px;
+    margin-bottom: 0.25rem;
+  }
+
+  .big {
+    font-size: large;
+    font-weight: 500;
+  }
+
+  .levels-input {
+    align-items: center;
+    display: block;
+    gap: 1rem;
+  }
+
+  .select {
+    margin: 1rem;
+  }
+
+  .loot {
+    margin-bottom: 1rem;
+    margin-top: 0.25rem;
+  }
+
+  .flexloot {
+    font-size: 0.75rem;
+  }
+
+  .lootItems-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .banner button {
+    right: 1%;
   }
 }

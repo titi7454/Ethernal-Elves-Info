@@ -21,8 +21,8 @@ const LookUp = () => {
   const [usernameData, setUsernameData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [wallet, setWallet] = useState("");
-  const [minLevel, setMinLevel] = useState("0");
-  const [maxLevel, setMaxLevel] = useState("1000");
+  const [minLevel, setMinLevel] = useState(0);
+  const [maxLevel, setMaxLevel] = useState(1000);
   const [hidden, setHidden] = useState("hidden");
   const [hidden1, setHidden1] = useState("hidden");
   const [elder, setElder] = useState(true);
@@ -50,7 +50,7 @@ const LookUp = () => {
 
   //Fetch data from the api
   const fetchOwnerData = useCallback(async () => {
-    if (wallet.length <= 41){
+    if (wallet.length <= 41) {
       return;
     }
     const fetchOwnerAddress = await fetch(apiAddress);
@@ -62,7 +62,7 @@ const LookUp = () => {
     setOwnerData(resultOfAddress);
     setLootData(resultOfLoot);
     setUsernameData(resultOfUsernames);
-  }, [apiAddress, apiLoot, apiUsernames, wallet.length]);
+  }, [apiAddress, apiLoot, apiUsernames, wallet.length, wallet]);
 
   const checkElves = () => {
     fetchOwnerData();
@@ -97,7 +97,7 @@ const LookUp = () => {
     const resolver = await provider.resolveName(e);
     const isEns = resolver !== null ? resolver : e;
     setWallet(isEns);
-    setIsEmpty(false)
+    setIsEmpty(false);
   };
 
   const handleMinLevel = (e) => {
@@ -133,8 +133,9 @@ const LookUp = () => {
     setLoading(true);
     setEns("");
     setHidden1("hidden");
-    setMaxLevel("100");
-    setMinLevel("0");
+    setMaxLevel(1000);
+    setMinLevel(0);
+    setIsEmpty(true);
   };
 
   //Refresh nft data after searching for a new address

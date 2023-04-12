@@ -90,7 +90,7 @@ const Analytics = () => {
       <h2 className="prices">
         Current prices{" "}
         <button className="btnPrice" onClick={handlePriceChange}>
-          {changePrice ? "USD" : "ETH"}
+          {changePrice ? "ETH" : "USD"}
         </button>
       </h2>
       <div className="stats">

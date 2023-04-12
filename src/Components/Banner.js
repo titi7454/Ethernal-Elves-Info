@@ -12,7 +12,7 @@ function Banner() {
             Changelog
           </Link>
         </div>
-        <button onClick={() => setIsActive(false)}>X</button>
+        <button onClick={() => setIsActive(false)} className="close">X</button>
       </div>
     );
   }

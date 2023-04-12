@@ -55,7 +55,6 @@ const OrcCard = ({
   }, [api]);
 
   if (loading === true) {
-    if (!orcData?.attributes) return
     return (
       <div className="middle-n">
         <div className="ring">
