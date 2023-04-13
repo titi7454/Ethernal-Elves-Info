@@ -1,4 +1,4 @@
-import { React, useEffect, useState } from "react";
+import { React, useCallback, useEffect, useState } from "react";
 import OrcCard from "./OrcCard";
 
 const Orcs = () => {
@@ -16,6 +16,12 @@ const Orcs = () => {
 
   const copyArray = () => {
     setOrcsArr((orcsArr) => orcsArrCopy);
+  };
+
+  const orcData = () => {
+    for (let i = orcsArr[orcsArr.length-1]+1; i <= loadedOrcs; i++) {
+      setOrcsArr((o) => [...o, i]);
+    }
   };
 
   const handleMinLevel = (e) => {
@@ -41,7 +47,9 @@ const Orcs = () => {
     }
   };
 
-  useEffect(() => {}, [loadedOrcs, orcsArr]);
+  useEffect(() => {
+    orcData();
+  }, [loadedOrcs]);
   return (
     <div className="maindiv">
       <div className="levels-input">

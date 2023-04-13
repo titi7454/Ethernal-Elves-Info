@@ -19,6 +19,12 @@ const Elders = () => {
     setEldersArr((eldersArr) => eldersArrCopy);
   };
 
+  const elderData = () => {
+    for (let i = eldersArr[eldersArr.length - 1] + 1; i <= loadedElders; i++) {
+      setEldersArr((o) => [...o, i]);
+    }
+  };
+
   const handleMinLevel = (e) => {
     setMinLevel(e);
   };
@@ -42,7 +48,9 @@ const Elders = () => {
     }
   };
 
-  useEffect(() => {}, [loadedElders, eldersArr]);
+  useEffect(() => {
+    elderData();
+  }, [loadedElders]);
   return (
     <div className="maindiv">
       <div className="levels-input">

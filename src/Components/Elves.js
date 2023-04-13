@@ -17,7 +17,12 @@ const Elves = () => {
 
   const copyArray = () => {
     setElvesArr((elvesArr) => elvesArrCopy);
-    console.log(elvesArrCopy);
+  };
+
+  const elfData = () => {
+    for (let i = elvesArr[elvesArr.length - 1] + 1; i <= loadedElves; i++) {
+      setElvesArr((o) => [...o, i]);
+    }
   };
 
   const handleMinLevel = (e) => {
@@ -37,16 +42,15 @@ const Elves = () => {
     if (elvesArr.filter((elf) => elf === Number(e)) && !elvesArr) {
       const filteredArr = elvesArr.filter((elf) => elf === Number(e));
       setElvesArr([filteredArr]);
-      console.log(
-        `filtered arr:${filteredArr}, e: ${e}, elves arr: ${elvesArr}`
-      );
     } else {
       const newSearch = Number(e);
       setElvesArr([newSearch]);
     }
   };
 
-  useEffect(() => {}, [loadedElves, elvesArr]);
+  useEffect(() => {
+    elfData();
+  }, [loadedElves]);
   return (
     <div className="maindiv">
       <div className="levels-input">

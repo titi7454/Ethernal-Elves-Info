@@ -50,7 +50,6 @@ const OrcCard = ({
       const result = await response.json();
       setOrcData(result);
       setLoading(false);
-      console.log(orcData.attributes);
     };
     fetchData();
   }, [api]);
