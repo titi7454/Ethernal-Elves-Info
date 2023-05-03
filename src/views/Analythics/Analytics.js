@@ -11,14 +11,14 @@ const Analytics = () => {
   const apiElders = `https://api.opensea.io/api/v1/collection/ethernalelves-elders/stats`;
   const apiArtifact = `https://api.opensea.io/api/v1/collection/ethernalelves-artifacts/stats`;
   const apiTokens = `https://api.ethernalelves.com/api/tokens`;
-  const apiRenLeaderboard = `http://localhost:5000/api/stats/renleaderboard`;
-  const apiMoonLeaderboard = `http://localhost:5000/api/stats/moonleaderboard`;
-  const apiEconomy = `http://localhost:5000/api/stats/economy`;
-  const apiBossLeaderbaord = `http://localhost:5000/api/stats/bosskillsleaderboard`;
-  const apiDailyRen = `http://localhost:5000/api/stats/daily/ren`;
-  const apiWeeklyRen = `http://localhost:5000/api/stats/weekly/ren`;
-  const apiDailyMoon = `http://localhost:5000/api/stats/daily/moon`;
-  const apiWeeklyMoon = `http://localhost:5000/api/stats/weekly/moon`;
+  const apiRenLeaderboard = `https://api.ethernalelves.com/api/stats/renleaderboard`;
+  const apiMoonLeaderboard = `https://api.ethernalelves.com/api/stats/moonleaderboard`;
+  const apiEconomy = `https://api.ethernalelves.com/api/stats/economy`;
+  const apiBossLeaderbaord = `https://api.ethernalelves.com/api/stats/bosskillsleaderboard`;
+  const apiDailyRen = `https://api.ethernalelves.com/api/stats/daily/ren`;
+  const apiWeeklyRen = `https://api.ethernalelves.com/api/stats/weekly/ren`;
+  const apiDailyMoon = `https://api.ethernalelves.com/api/stats/daily/moon`;
+  const apiWeeklyMoon = `https://api.ethernalelves.com/api/stats/weekly/moon`;
 
   const [elfStats, setElfStats] = useState([]);
   const [renLB, setRenLB] = useState([{ objectId: "Fetching burn data..." }]);
