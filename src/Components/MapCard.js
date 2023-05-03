@@ -107,7 +107,7 @@ const MapCard = ({ typeOfElf, mapId }) => {
           </button>
           <div className="backstats">
             <div className="morestats">Resources used</div>
-            <div className="flex">
+            <div className="map-resources">
               <div>Aether:{resource.aether}</div>
               <div>Frost:{resource.frost}</div>
               <div>Iron:{resource.iron}</div>

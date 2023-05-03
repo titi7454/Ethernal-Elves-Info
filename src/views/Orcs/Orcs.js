@@ -1,5 +1,5 @@
-import { React, useCallback, useEffect, useState } from "react";
-import OrcCard from "./OrcCard";
+import { React, useEffect, useState } from "react";
+import OrcCard from "../../Components/OrcCard";
 
 const Orcs = () => {
   const [loadedOrcs, setLoadedOrcs] = useState(25);
@@ -19,7 +19,7 @@ const Orcs = () => {
   };
 
   const orcData = () => {
-    for (let i = orcsArr[orcsArr.length-1]+1; i <= loadedOrcs; i++) {
+    for (let i = orcsArr[orcsArr.length - 1] + 1; i <= loadedOrcs; i++) {
       setOrcsArr((o) => [...o, i]);
     }
   };

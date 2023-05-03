@@ -38,6 +38,111 @@ a:active {
   cursor: pointer;
 }
 
+.leaderboard {
+  display: flex;
+  justify-content: center;
+}
+
+.top5 {
+  font-weight: bold;
+  font-size: 1.6rem;
+}
+
+.LBcontainer {
+  border-radius: 10px;
+  background-color: #77839b52;
+  font-size: 1.35rem;
+  padding: 1rem 2rem;
+  margin: 1rem;
+}
+
+.LBtext {
+  padding: 0.25rem 0;
+}
+
+.main-div {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.prices {
+  margin-bottom: 1rem;
+}
+
+.top {
+  position: absolute;
+  top: 0;
+}
+
+.chartSM {
+  display: none !important;
+}
+
+.funnelchart {
+  height: 700px;
+  width: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1rem;
+}
+
+.funnelchart span {
+  color: #000;
+  font-size: 0.8rem;
+}
+
+.chart {
+  --c: #f5b43c; /* the color*/
+
+  box-shadow: 0 0 0 0.1em inset var(--c);
+  --_g: linear-gradient(var(--c) 0 0) no-repeat;
+  background: var(--_g) calc(var(--_p, 0%) - 100%) 0%,
+    var(--_g) calc(200% - var(--_p, 0%)) 0%,
+    var(--_g) calc(var(--_p, 0%) - 100%) 100%,
+    var(--_g) calc(200% - var(--_p, 0%)) 100%;
+  background-size: 50.5% calc(var(--_p, 0%) / 2 + 0.5%);
+  outline-offset: 0.1em;
+  transition: background-size 0.4s, background-position 0s 0.4s;
+  font-family: system-ui, sans-serif;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0.1em 0.6em;
+  font-weight: bold;
+  border: none;
+}
+
+.chart--disabled {
+  --c: #f5b43c; /* the color*/
+
+  box-shadow: 0 0 0 0.1em inset var(--c);
+  --_g: linear-gradient(var(--c) 0 0) no-repeat;
+  background: var(--_g) calc(var(--_p, 0%) - 100%) 0%,
+    var(--_g) calc(200% - var(--_p, 0%)) 0%,
+    var(--_g) calc(var(--_p, 0%) - 100%) 100%,
+    var(--_g) calc(200% - var(--_p, 0%)) 100%;
+  background-size: 50.5% calc(var(--_p, 0%) / 2 + 0.5%);
+  outline-offset: 0.1em;
+  transition: background-size 0.4s, background-position 0s 0.4s;
+  font-family: system-ui, sans-serif;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0.1em 0.6em;
+  font-weight: bold;
+  border: none;
+}
+.chart:hover {
+  --_p: 100%;
+  transition: background-position 0.4s, background-size 0s;
+}
+.chart:active {
+  box-shadow: 0 0 9e9Q inset #0009;
+  background-color: var(--c);
+  color: #fff;
+}
+
 .App-header {
   color: white;
   text-align: center;
@@ -77,7 +182,7 @@ a:active {
   gap: 2px;
 }
 
-.flex {
+.map-resources {
   display: flex;
   flex-direction: column;
 }
@@ -509,6 +614,10 @@ a:active {
   justify-content: space-between;
   align-items: stretch;
   padding: 1rem;
+  position: -webkit-sticky;
+  position: -moz-sticky;
+  position: -o-sticky;
+  position: -ms-sticky;
   position: sticky;
   top: 0;
   z-index: 999;
@@ -663,6 +772,7 @@ a:active {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 0.25rem;
 }
 
 .banner button {
@@ -770,7 +880,7 @@ keyframes
     height: 0;
   }
   100% {
-    height: 18%;
+    height: 20vh;
   }
 }
 
@@ -906,6 +1016,9 @@ keyframes
     display: grid;
     grid-template-columns: repeat(4, 1fr);
   }
+  .leaderboard {
+    flex-wrap: wrap;
+  }
 }
 
 @media only screen and (max-width: 800px) {
@@ -915,10 +1028,6 @@ keyframes
 
   h3 {
     font-size: medium;
-  }
-
-  .nav {
-    position: initial;
   }
 
   .navitems-n {
@@ -936,7 +1045,7 @@ keyframes
     background-color: #3b414b;
     display: initial !important;
     padding: 20px;
-    height: 18%;
+    height: 20vh;
     animation: normal 0.5s dropdown;
   }
 
@@ -951,7 +1060,7 @@ keyframes
   }
 
   .prices {
-    font-size: 1.5rem;
+    font-size: 2.25rem;
   }
 
   .navitems {
@@ -1007,6 +1116,53 @@ keyframes
     padding-left: 10px;
   }
 
+  .leaderboard {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .LBcontainer {
+    margin: 0 8rem;
+    font-size: 1rem;
+  }
+  .top5 {
+    font-size: 1.35rem;
+  }
+
+  .chartLG {
+    display: none !important;
+  }
+
+  .chartSM {
+    display: initial !important;
+  }
+
+  .funnelchart {
+    height: 250px;
+    width: 350px;
+    margin-bottom: 1rem;
+  }
+  .leaderboard {
+    margin: 0 1rem;
+  }
+  .LBcontainer {
+    padding: 1rem;
+    margin: 1rem;
+  }
+  .LBtext {
+    overflow-wrap: break-word;
+    max-width: 16rem;
+  }
+  .top5 {
+    font-size: 1.2rem;
+  }
+  .chart {
+    font-size: 1rem;
+  }
+
+  .chart--disabled {
+    font-size: 1rem;
+  }
+
   #elfimage {
     height: 40px;
   }
@@ -1019,8 +1175,8 @@ keyframes
   }
   #close-menu {
     position: absolute;
-    right: 4.3%;
-    top: 1.35%;
+    right: 5.2%;
+    top: 17.5%;
     display: initial;
     width: 50px;
     filter: invert(100%) sepia(6%) saturate(2%) hue-rotate(222deg)
@@ -1029,8 +1185,8 @@ keyframes
 
   #burger-menu {
     position: absolute;
-    right: 6%;
-    top: 2.5%;
+    right: 7%;
+    top: 30%;
     display: initial;
     width: 35px;
     filter: invert(100%) sepia(6%) saturate(2%) hue-rotate(222deg)

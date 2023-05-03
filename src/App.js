@@ -1,20 +1,20 @@
 // import logo from './logo.svg';
 import "./App.css";
-import LookUp from "./Components/LookUp";
-import Analytics from "./Components/Analytics";
+import LookUp from "./views/LookUp/LookUp";
+import Analytics from "./views/Analythics/Analytics";
 import NavBar from "./Components/NavBar";
 import { Route, Routes } from "react-router-dom";
-import Elves from "./Components/Elves";
-import Elders from "./Components/Elders";
-import Orcs from "./Components/Orcs";
+import Elves from "./views/Elves/Elves";
+import Elders from "./views/Elders/Elders";
+import Orcs from "./views/Orcs/Orcs";
 import Banner from "./Components/Banner";
-import Changelog from "./Components/Changelog";
+import Changelog from "./views/Changelog/Changelog";
 
 function App() {
   return (
     <div className="App-header">
       <NavBar />
-      <Banner/>
+      <Banner />
       <Routes>
         <Route path="/Ethernal-Elves-Info" element={<Analytics />} />
         <Route path="/LookUp" element={<LookUp />} />

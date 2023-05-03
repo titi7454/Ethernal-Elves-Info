@@ -2,6 +2,13 @@ function Changelog() {
   return (
     <div className="changelog--main">
       <div className="changelog">Changelog</div>
+      <div className="version">v1.0.4</div>
+      <ul className="changelog--list">
+        <li>You can now search nfts by their IDs in the Look-up page</li>
+        <li>Daily and weekly burn stats added</li>
+        <li>Weekly leaderboard added</li>
+        <li>Charts with REN's economy added</li>
+      </ul>
       <div className="version">v1.0.3</div>
       <ul className="changelog--list">
         <li>Allies added</li>

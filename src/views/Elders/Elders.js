@@ -1,5 +1,5 @@
 import { React, useEffect, useState } from "react";
-import ElfCard from "./ElfCard";
+import ElfCard from "../../Components/ElfCard";
 
 const Elders = () => {
   const [loadedElders, setLoadedElders] = useState(25);
