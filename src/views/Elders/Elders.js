@@ -54,16 +54,16 @@ const Elders = () => {
   return (
     <div className="maindiv">
       <div className="levels-input">
-        <div>
-          <div className="up">
-            <div>Search by Id</div>
-            <input
-              className="level"
-              value={elderById}
-              onChange={(e) => handleSearchById(e.target.value)}
-            />
-          </div>
-          <div className="up">Min. Level</div>
+        <div className="up">
+          <div>Search by Id</div>
+          <input
+            className="level"
+            value={elderById}
+            onChange={(e) => handleSearchById(e.target.value)}
+          />
+        </div>
+        <div className="up">
+          <div>Min. Level</div>
           <input
             className="level"
             value={minLevel}
@@ -91,7 +91,7 @@ const Elders = () => {
           <option value="Mauler">Mauler</option>
         </select>
       </div>
-      <div className="Elders">
+      <div className="elves">
         {eldersArr.map((elders, key) => {
           return (
             <ElfCard
