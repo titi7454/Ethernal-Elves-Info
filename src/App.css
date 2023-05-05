@@ -1,6 +1,15 @@
 :root {
   --col: #f5b43c;
   --bg: #b78846;
+  --color-light: white;
+  --color-dark: #212121;
+  --color-signal: #fab700;
+  --color-background: var(--color-light);
+  --color-text: var(--color-dark);
+  --color-accent: var(--color-signal);
+  --size-bezel: 0.5rem;
+  --size-radius: 4px;
+  --color-body: #282c34;
 }
 
 * {
@@ -512,17 +521,18 @@ a:active {
   justify-content: center;
   position: absolute;
   left: 73%;
-  color: #444;
+  color: var(--color-dark);
   border: none;
   font-family: inherit;
   font-size: 2rem;
   cursor: pointer;
   width: 3rem;
   height: 3rem;
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: var(--color-signal);
   backdrop-filter: blur(10px);
-  margin-top: 2rem;
-  margin-left: 2rem;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  padding-bottom: 0.25rem;
   box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
 }
 
@@ -835,6 +845,73 @@ ul.changelog--list > li:before {
 }
 .lootborder {
   border: 1px solid white;
+}
+
+.card--wallet {
+  background: transparent;
+  padding: calc(4 * var(--size-bezel));
+  margin-top: calc(4 * var(--size-bezel));
+  border-radius: var(--size-radius);
+  border: 3px solid var(--color-shadow, currentColor);
+  box-shadow: 0.5rem 0.5rem 0 var(--color-shadow, currentColor);
+}
+.card--wallet--inverted {
+  --color-background: var(--color-dark);
+  color: var(--color-light);
+  --color-shadow: var(--color-accent);
+}
+.card--wallet *:first-child {
+  margin-top: 0;
+}
+.input__label {
+  position: absolute;
+  left: 9%;
+  top: 52%;
+  padding: calc(var(--size-bezel) * 0.75) calc(var(--size-bezel) * 0.5);
+  margin: calc(var(--size-bezel) * 0.75 + 3px) calc(var(--size-bezel) * 0.5);
+  background: pink;
+  white-space: nowrap;
+  transform: translate(0, 0);
+  transform-origin: 0 0;
+  background: var(--color-body);
+  transition: transform 120ms ease-in;
+  font-weight: bold;
+  line-height: 1.2;
+  font-size: calc(0.7rem + 0.4vw);
+}
+.input__field {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  border: 3px solid currentColor;
+  padding: calc(var(--size-bezel) * 1.5) var(--size-bezel);
+  color: currentColor;
+  background: transparent;
+  border-radius: var(--size-radius);
+}
+.input__field:focus + .input__label,
+.input__field:not(:placeholder-shown) + .input__label {
+  transform: translate(0.25rem, -65%) scale(0.8);
+  color: var(--color-accent);
+}
+.button-group {
+  color: currentColor;
+  padding: var(--size-bezel) calc(var(--size-bezel) * 2);
+  background: var(--color-accent);
+  border: none;
+  border-radius: var(--size-radius);
+  font-weight: 900;
+  font-size: large;
+  margin-left: calc(var(--size-bezel) * 2);
+  cursor: pointer;
+  color: var(--color-dark);
+  margin-top: calc(var(--size-bezel) * 2.5);
+}
+.button-group:hover {
+  background-color: white;
+}
+.button-group:disabled {
+  color: gray;
 }
 /*
 keyframes
@@ -1225,9 +1302,43 @@ keyframes
   }
 
   .first {
-    max-width: 390px;
+    width: 100%;
   }
 
+  .card--wallet {
+    width: 80%;
+  }
+  .wallet--header {
+    font-size: 1.5rem;
+  }
+  .input__label {
+    position: absolute;
+    left: 19%;
+    top: 44%;
+    padding: calc(var(--size-bezel) * 0.75) calc(var(--size-bezel) * 0.5);
+    margin: calc(var(--size-bezel) * 0.75 + 3px) calc(var(--size-bezel) * 0.5);
+    background: pink;
+    white-space: nowrap;
+    transform: translate(0, 0);
+    transform-origin: 0 0;
+    background: var(--color-body);
+    transition: transform 120ms ease-in;
+    font-weight: bold;
+    line-height: 1.2;
+    font-size: calc(1rem + 0.4vw);
+  }
+  .input__field:focus + .input__label,
+  .input__field:not(:placeholder-shown) + .input__label {
+    transform: translate(0.25rem, -65%) scale(0.8);
+    color: var(--color-accent);
+  }
+  .button-group {
+    font-size: medium;
+    margin-left: 0;
+  }
+  .btn--help {
+    left: 69%;
+  }
   .checkbox {
     font-size: 1.25rem;
     gap: 1;

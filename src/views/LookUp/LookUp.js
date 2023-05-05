@@ -4,6 +4,8 @@ import NftCards from "../../Components/nftcards";
 import Loot from "../../Components/Loot";
 import WalletSearch from "../../Components/WalletSearch";
 import WalletSettings from "../../Components/WalletSettings";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const LookUp = () => {
   const [ownerData, setOwnerData] = useState([]);
@@ -34,11 +36,11 @@ const LookUp = () => {
   //https://cors-anywhere.herokuapp.com/
   //https://api.opensea.io/api/v1/asset/0xfb2b13c622d1590f9199f75d975574e8240b2618/1
 
+  const errorMessage = () => toast.error("No elves encountered!");
+
   //Fetch data from the api
   const fetchOwnerData = useCallback(async () => {
-    if (wallet.length <= 41) {
-      return;
-    } else {
+    if (wallet.length > 41) {
       const fetchOwnerAddress = await fetch(apiAddress);
       const resultOfAddress = await fetchOwnerAddress.json();
       const fetchLoot = await fetch(apiLoot);
@@ -54,8 +56,7 @@ const LookUp = () => {
   const checkElves = async () => {
     await fetchOwnerData();
     if (ownerData === null || ownerData.sentinels.length === 0) {
-      setLoading(true);
-      setHidden1("");
+      errorMessage();
     } else {
       setLoading(false);
     }
@@ -152,11 +153,22 @@ const LookUp = () => {
   useEffect(() => {
     fetchOwnerData();
   }, [loading, fetchOwnerData, minLevel, maxLevel]);
-
   //Create the loading screen
   if (loading === true) {
     return (
       <div>
+        <ToastContainer
+          position="bottom-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+        />
         <WalletSearch
           hidden={hidden}
           hidden1={hidden1}

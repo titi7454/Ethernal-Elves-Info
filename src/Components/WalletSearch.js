@@ -2,7 +2,6 @@ import React from "react";
 
 const WalletSearch = ({
   hidden,
-  hidden1,
   handleCloseHelp,
   handleEnterAddress,
   ens,
@@ -23,21 +22,23 @@ const WalletSearch = ({
       </div>
       <div className={hidden} id="overlay"></div>
       <div className="first">
-        <h1 id="top">Look up a wallet</h1>
         <div className="initial">
-          <div className={hidden1} id="red">
-            NO ELVES ENCOUNTERED
-          </div>
-          <input
-            maxLength={42}
-            className="searchbar"
-            placeholder="Enter address"
-            value={ens}
-            onChange={(e) => handleEnterAddress(e.target.value)}
-          />
-          <div className="searchhelp">
+          <div className="card--wallet card--wallet--inverted">
+            <h2 className="wallet--header">Look up a wallet</h2>
+            <label className="input">
+              <input
+                maxLength={42}
+                placeholder="Enter address"
+                value={ens}
+                onChange={(e) => handleEnterAddress(e.target.value)}
+                className="input__field"
+                type="text"
+              />
+              <span className="input__label">0xAddress or ENS</span>
+            </label>
+
             <button
-              className="search"
+              className="button-group"
               onClick={handleSubmit}
               disabled={isEmpty}
             >
