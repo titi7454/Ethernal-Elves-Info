@@ -38,16 +38,16 @@ const MapCard = ({ typeOfElf, mapId }) => {
     mapData.image
     // show all elves if no class is selected or show all elves of the selected class
   ) {
-    const coasts = Math.floor(biome.coasts * 100) / 100;
-    const desert = Math.floor(biome.desert * 100) / 100;
-    const dirt = Math.floor(biome.dirt * 100) / 100;
-    const grass = Math.floor(biome.grass * 100) / 100;
-    const mountains = Math.floor(biome.mountains * 100) / 100;
-    const rivers = Math.floor(biome.rivers * 100) / 100;
-    const roads = Math.floor(biome.roads * 100) / 100;
-    const snow = Math.floor(biome.snow * 100) / 100;
-    const swampland = Math.floor(biome.swampland * 100) / 100;
-    const water = Math.floor(biome.water * 100) / 100;
+    const coasts = Math.floor(biome.coasts);
+    const desert = Math.floor(biome.desert);
+    const dirt = Math.floor(biome.dirt);
+    const grass = Math.floor(biome.grass);
+    const mountains = Math.floor(biome.mountains);
+    const rivers = Math.floor(biome.rivers);
+    const roads = Math.floor(biome.roads);
+    const snow = Math.floor(biome.snow);
+    const swampland = Math.floor(biome.swampland);
+    const water = Math.floor(biome.water);
 
     return (
       <div className={`child box card ${flip ? "flip" : ""}`}>
@@ -77,18 +77,18 @@ const MapCard = ({ typeOfElf, mapId }) => {
                     Biomes:
                     <div className="map--grid">
                       <div>
-                        <div>Coasts: {coasts}</div>
-                        <div>Desert: {desert}</div>
-                        <div>Dirt: {dirt}</div>
-                        <div>Grass: {grass}</div>
-                        <div>Mountains: {mountains}</div>
+                        <div>Coasts: {coasts}%</div>
+                        <div>Desert: {desert}%</div>
+                        <div>Dirt: {dirt}%</div>
+                        <div>Grass: {grass}%</div>
+                        <div>Mountains: {mountains}%</div>
                       </div>
                       <div>
-                        <div>Rivers: {rivers}</div>
-                        <div>Roads: {roads}</div>
-                        <div>Snow: {snow}</div>
-                        <div>Swampland: {swampland}</div>
-                        <div>Water: {water}</div>
+                        <div>Rivers: {rivers}%</div>
+                        <div>Roads: {roads}%</div>
+                        <div>Snow: {snow}%</div>
+                        <div>Swampland: {swampland}%</div>
+                        <div>Water: {water}%</div>
                       </div>
                     </div>
                   </div>

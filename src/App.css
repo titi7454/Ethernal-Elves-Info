@@ -121,6 +121,7 @@ a:active {
   padding: 0.1em 0.6em;
   font-weight: bold;
   border: none;
+  color: #fff;
 }
 
 .chart--disabled {
@@ -141,10 +142,12 @@ a:active {
   padding: 0.1em 0.6em;
   font-weight: bold;
   border: none;
+  color: rgb(163, 163, 163);
 }
 .chart:hover {
   --_p: 100%;
-  transition: background-position 0.4s, background-size 0s;
+  color: #000;
+  transition: background-position 0.4s, background-size 0s, color 0.5s;
 }
 .chart:active {
   box-shadow: 0 0 9e9Q inset #0009;
