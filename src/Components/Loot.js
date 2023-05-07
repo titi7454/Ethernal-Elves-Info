@@ -1,7 +1,7 @@
 import React from "react";
 
 import REN from "../Assets/REN.png";
-import MOON from "../Assets/MOON.png";
+import MOON from "../../Assets/MOON.png";
 import Aether from "../Assets/Aether.png";
 import Artifacts from "../Assets/Artifacts.png";
 import Scrolls from "../Assets/Scrolls.png";
