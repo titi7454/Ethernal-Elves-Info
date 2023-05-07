@@ -6,7 +6,7 @@ import CurrentPrices from "../../Components/CurrentPrices";
 import Burn from "../../Components/Burn";
 import RenEconomyCharts from "../../Components/RenEconomyCharts";
 
-const Analytics = () => {
+const Stats = () => {
   const apiElves = `https://api.opensea.io/api/v1/collection/ethernalelves/stats`;
   const apiElders = `https://api.opensea.io/api/v1/collection/ethernalelves-elders/stats`;
   const apiArtifact = `https://api.opensea.io/api/v1/collection/ethernalelves-artifacts/stats`;
@@ -245,4 +245,4 @@ const Analytics = () => {
   );
 };
 
-export default Analytics;
+export default Stats;
