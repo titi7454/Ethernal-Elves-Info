@@ -9,6 +9,7 @@ import Elders from "./views/Elders/Elders";
 import Orcs from "./views/Orcs/Orcs";
 import Banner from "./Components/Banner";
 import Changelog from "./views/Changelog/Changelog";
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/Orcs" element={<Orcs />} />
         <Route path="/Changelog" element={<Changelog />} />
       </Routes>
+      <Analytics />
     </div>
   );
 }
