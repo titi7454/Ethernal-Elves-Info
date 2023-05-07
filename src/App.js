@@ -16,7 +16,7 @@ function App() {
       <NavBar />
       <Banner />
       <Routes>
-        <Route path="/Ethernal-Elves-Info" element={<Analytics />} />
+        <Route path="/" element={<Analytics />} />
         <Route path="/LookUp" element={<LookUp />} />
         <Route path="/Elves" element={<Elves />} />
         <Route path="/Elders" element={<Elders />} />
