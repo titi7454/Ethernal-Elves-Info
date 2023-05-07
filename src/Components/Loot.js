@@ -1,7 +1,6 @@
 import React from "react";
 
 import REN from "../Assets/Ren.png";
-import MOON from "../Assets/Moon.png";
 import Aether from "../Assets/Aether.png";
 import Artifacts from "../Assets/Artifacts.png";
 import Scrolls from "../Assets/Scrolls.png";
@@ -36,9 +35,7 @@ const Loot = ({ lootData }) => {
           {lootData[0].name}
           <div className="lootItems">
             {lootItems(1, REN)}
-            {lootItems(2, MOON)}
             {lootItems(3, ZUG)}
-            {lootItems(4, MOON)}
           </div>
         </div>
         <div>
