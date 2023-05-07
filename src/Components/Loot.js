@@ -1,7 +1,7 @@
 import React from "react";
 
-import REN from "../Assets/REN.png";
-import MOON from "../Assets/MOON.png";
+import REN from "../Assets/Ren.png";
+import MOON from "../Assets/Moon.png";
 import Aether from "../Assets/Aether.png";
 import Artifacts from "../Assets/Artifacts.png";
 import Scrolls from "../Assets/Scrolls.png";
@@ -9,7 +9,7 @@ import Magma from "../Assets/Magma.png";
 import Frost from "../Assets/Frost.png";
 import Iron from "../Assets/Iron.png";
 import Terra from "../Assets/Terra.png";
-import ZUG from "../Assets/ZUG.png";
+import ZUG from "../Assets/Zug.png";
 
 const Loot = ({ lootData }) => {
   const lootItems = (n, img) => {

@@ -1,9 +1,9 @@
 import React from "react";
 import ethPng from "../Assets/eth.png";
-import moonPng from "../Assets/MOON.png";
-import renPng from "../Assets/REN.png";
+import moonPng from "../Assets/Moon.png";
+import renPng from "../Assets/Ren.png";
 import artifactPng from "../Assets/Artifacts.png";
-import usdPng from "../Assets/USD.png";
+import usdPng from "../Assets/Usd.png";
 
 function CurrentPrices({
   artifactStats,
