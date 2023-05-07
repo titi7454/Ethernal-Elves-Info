@@ -40,7 +40,7 @@ const NavBar = () => {
       </div>
       {
         <ul className={"navitems-n"}>
-          <CustomLink to="/Ethernal-Elves-Info">Analytics</CustomLink>
+          <CustomLink to="/">Analytics</CustomLink>
           <CustomLink to="/LookUp">Look-up</CustomLink>
           <CustomLink to="/Elves">Elves</CustomLink>
           <CustomLink to="/Elders">Elders</CustomLink>
@@ -50,7 +50,7 @@ const NavBar = () => {
       }
       {isOpen && (
         <ul className={"navitems"} onClick={() => setIsOpen(!isOpen)}>
-          <CustomLink to="/Ethernal-Elves-Info">Analytics</CustomLink>
+          <CustomLink to="/">Analytics</CustomLink>
           <CustomLink to="/LookUp">Look up</CustomLink>
           <CustomLink to="/Elves">Elves</CustomLink>
           <CustomLink to="/Elders">Elders</CustomLink>
